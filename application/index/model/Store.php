@@ -47,11 +47,19 @@ class Store extends Common{
             $list = $list->page($page, $limit);
         }
 
-        $list = $list->field('stoId,stoname,county,province,city,address,state,longitude,latitude,isdirect');
+        $list = $list->field('stoId,stono,stoname,county,province,city,address,state,longitude,latitude,isdirect');
+
 
         $list = $list->select();
 
         $dataCount = sizeof($list);
+
+        for ($i = 0; $i<$dataCount; $i++) {
+            $tmp = $this->getStoreImg($list[$i]['stoId']);
+            if($tmp){
+                $list[$i]['img'] = $tmp;
+            }
+        }
 
         $data['list'] = $list;
         $data['dataCount'] = $dataCount;
@@ -78,7 +86,7 @@ class Store extends Common{
 
         $list = Db::table('sto_equ')->alias('stoequ')
             ->where($map)
-            ->join('__EQUIPMENT__ equipment','sto_equ.equ = equipment.equId','LEFT');
+            ->join('__EQUIPMENT__ equipment','sto_equ.equId = equipment.equId','LEFT');
 
         $list = $list->field('equipment.equId,equipment.equno,equipment.type,equipment.name,equipment.remark');
 
@@ -135,9 +143,9 @@ class Store extends Common{
 
         $list = Db::table('sto_img')->alias('stoimg')
             ->where('stoimg.stoId',$sid)
-            ->join('__IMGS__ imgs','stoimg.imgId = imgs.imgId','LEFT');
+            ->join('__IMGS__ imgs','stoimg.imgId = imgs.imgId','LEFT')->order('imgs.sort','desc');
 
-        $list = $list->field('imgs.imgId,imgs.name,imgs.url,imgs.path,imgs.sort');
+        $list = $list->field('imgs.imgId,imgs.name,imgs.url,imgs.sort');
 
         $list = $list->select();
 
