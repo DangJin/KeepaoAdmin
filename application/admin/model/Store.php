@@ -303,7 +303,7 @@ class Store extends Model
             return [
                 'value' => false,
                 'data' => [
-                    'message' => '角色Id不能为空'
+                    'message' => '店铺不能为空'
                 ]
             ];
         }

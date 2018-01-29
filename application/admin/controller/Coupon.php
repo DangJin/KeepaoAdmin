@@ -60,14 +60,19 @@ class Coupon extends Common
 
     public function select(Request $request)
     {
+        $data = [];
+        if ($request->has('stoId', 'param', true)) {
+            $data['stoId'] = $request->param('stoId');
+        }
+
         if ($request->has('page', 'param', true)) {
             $page = $request->param('page');
             if ($request->has('limit', 'param', true)) {
-                return json($this->coupon->select($page, $request->param('limit')));
+                return json($this->coupon->select($data, $page, $request->param('limit')));
             }
-            return json($this->coupon->select($page));
+            return json($this->coupon->select($data, $page));
         }
-        return json($this->coupon->select());
+        return json($this->coupon->select($data));
     }
 
     public function selectDet(Request $request)

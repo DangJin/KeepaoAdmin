@@ -21,6 +21,7 @@ class Store extends Validate
         'longitude' => 'require',
         'latitude' => 'require',
         'isdirect' => 'require',
+        'level' => 'require',
     ];
 
     protected $message = [
@@ -31,5 +32,6 @@ class Store extends Validate
         'longitude.require'  =>  '经度不能为空',
         'latitude.require'  =>  '纬度不能为空',
         'isdirect.require'  =>  '是否为直营不能为空',
+        'level.require'  =>  '门店等级不能为空',
     ];
 }

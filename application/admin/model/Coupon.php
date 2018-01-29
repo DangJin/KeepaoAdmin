@@ -184,12 +184,16 @@ class Coupon extends Model
         ];
     }
 
-    public function select($page = 1, $limit = 10)
+    public function select($data, $page = 1, $limit = 10)
     {
-        $result = Coupon::paginate($limit, false, ['page' => $page]);
+        $coupon = new Coupon;
+        if (isset($data['stoId'])) {
+            $coupon = $coupon->where('stoId', $data['stoId']);
+        }
+        $result = $coupon->paginate($limit, false, ['page' => $page]);
         $flag = false;
         $msg = '没有找到数据';
-        if ($admin->count() > 0) {
+        if ($result->count() > 0) {
             $flag = true;
             $msg = '查询成功';
         }

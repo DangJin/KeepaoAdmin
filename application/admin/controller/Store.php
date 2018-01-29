@@ -156,11 +156,11 @@ class Store extends Common
             if ($request->has('page', 'param', true)) {
                 $page = $request->param('page');
                 if ($request->has('limit', 'param', true)) {
-                    return json($this->store->getcou($stoId, $page, $request->param('limit')));
+                    return json($this->store->getequ($stoId, $page, $request->param('limit')));
                 }
-                return json($this->store->getcou($stoId, $page));
+                return json($this->store->getequ($stoId, $page));
             }
-            return json($this->store->getcou($stoId));
+            return json($this->store->getequ($stoId));
         } else {
             return json([
                 'value' => false,

@@ -22,6 +22,8 @@ class Equipment extends Model
     //设置自动插入修改时间
     protected $updateTime = 'modifyTime';
 
+    protected $insert = ["state" => 0];
+
     public function imgs()
     {
         return $this->belongsToMany('Imgs','equ_img', 'imgId', 'stoId');
@@ -84,7 +86,7 @@ class Equipment extends Model
         $arr = array_filter($arr);
 
         foreach ($arr as $a) {
-            $imgs = Db::table('equ_img')->where('stoId', $a)->select();
+            $imgs = Db::table('equ_img')->where('equId', $a)->select();
             foreach ($imgs as $img)
             {
                 $tmp = Imgs::get($img['imgId']);

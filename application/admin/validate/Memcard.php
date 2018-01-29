@@ -18,6 +18,7 @@ class Memcard extends Validate
         'day' => 'require',
         'money' => 'require',
         'point' => 'require',
+        'stoId' => 'require',
     ];
 
     protected $message = [

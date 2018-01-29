@@ -9,7 +9,9 @@
 namespace app\admin\validate;
 
 
-class Etype
+use think\Validate;
+
+class Etype extends Validate
 {
     protected $rule = [
         'name' => 'require|unique:etype',

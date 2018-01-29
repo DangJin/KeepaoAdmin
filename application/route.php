@@ -82,6 +82,7 @@
     'store/getcou' => ['admin/store/getcou', ['method' => 'get']],
     'store/getimg' => ['admin/store/getimg', ['method' => 'get']],
     'store/getuser' => ['admin/store/getuser', ['method' => 'get']],
+    'store/getequ' => ['admin/store/getequ', ['method' => 'get']],
 
     //设备
     'equipment/add' => ['admin/equipment/add', ['method' => 'post']],
@@ -107,10 +108,22 @@
     'active/getimg' => ['admin/active/getimg', ['method' => 'get']],
 
     //设备类型
-    'etype/add' => ['admin/coupon/add', ['method' => 'post']],
-    'etype/select' => ['admin/coupon/select', ['method' => 'get']],
-    'etype/delete' => ['admin/coupon/delete', ['method' => 'post']],
-    'etype/update' => ['admin/coupon/update', ['method' => 'post']],
+    'etype/add' => ['admin/etype/add', ['method' => 'post']],
+    'etype/select' => ['admin/etype/select', ['method' => 'get']],
+    'etype/delete' => ['admin/etype/delete', ['method' => 'post']],
+    'etype/update' => ['admin/etype/update', ['method' => 'post']],
+
+    //店铺类型
+    'stolevel/add' => ['admin/stolevel/add', ['method' => 'post']],
+    'stolevel/select' => ['admin/stolevel/select', ['method' => 'get']],
+    'stolevel/delete' => ['admin/stolevel/delete', ['method' => 'post']],
+    'stolevel/update' => ['admin/stolevel/update', ['method' => 'post']],
+
+    //会员卡门店等级
+    'levcar/add' => ['admin/levCar/add', ['method' => 'post']],
+    'levcar/select' => ['admin/levCar/select', ['method' => 'get']],
+    'levcar/delete' => ['admin/levCar/delete', ['method' => 'post']],
+    'levcar/update' => ['admin/levCar/update', ['method' => 'post']],
 //    '__miss__' => 'admin/behavior/miss',
 ]);
 

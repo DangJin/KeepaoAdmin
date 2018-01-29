@@ -2,8 +2,8 @@
 /**
  * Created by PhpStorm.
  * User: wry
- * Date: 18/1/25
- * Time: 下午9:11
+ * Date: 18/1/29
+ * Time: 上午9:40
  */
 
 namespace app\admin\controller;
@@ -11,13 +11,14 @@ namespace app\admin\controller;
 
 use think\Request;
 
-class Etype extends Common
+class Stolevel extends Common
 {
-    private $etype;
+    private $stolevel;
+
     public function __construct(Request $request = null)
     {
         parent::__construct($request);
-        $this->etype = new \app\admin\model\Etype();
+        $this->stolevel = new \app\admin\model\Stolevel();
     }
 
     public function add(Request $request)
@@ -32,14 +33,14 @@ class Etype extends Common
                 ]);
             }
             session('csrf', md5($_SERVER['REQUEST_TIME_FLOAT']));
-            return json($this->etype->add($request->param()));
+            return json($this->stolevel->add($request->param()));
         }
     }
 
     public function delete(Request $request)
     {
         if ($request->has('del', 'param', true)) {
-            return json($this->etype->del($request->param('del')));
+            return json($this->stolevel->del($request->param('del')));
         } else {
             return json([
                 'value' => false,
@@ -53,7 +54,7 @@ class Etype extends Common
 
     public function update(Request $request)
     {
-        return json($this->etype->renew($request->param()));
+        return json($this->stolevel->renew($request->param()));
     }
 
     public function select(Request $request)
@@ -64,19 +65,16 @@ class Etype extends Common
             $data['name'] = $request->param('name');
         }
 
-        if ($request->has('id', 'param', true)) {
-            $data['id'] = $request->param('id');
-        }
-
         if ($request->has('page', 'param', true))
         {
             $page = $request->param('page');
             if ($request->has('limit', 'param', true))
             {
-                return json($this->etype->select($data, $page, $request->param('limit')));
+                return json($this->stolevel->select($data, $page, $request->param('limit')));
             }
-            return json($this->etype->select( $data, $page));
+            return json($this->stolevel->select( $data, $page));
         }
-        return json($this->etype->select($data));
+        return json($this->stolevel->select($data));
     }
+
 }
