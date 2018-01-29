@@ -39,7 +39,7 @@ class Store extends Common{
 
         //若有经纬度,计算距离排序
         if($lng && $lat){
-            $list = $list->field('(2 * 6378.137* ASIN(SQRT(POW(SIN(3.1415926535898*('.$lat.'-latitude)/360),2)+COS(3.1415926535898*'.$lat.'/180)* COS(latitude * 3.1415926535898/180)*POW(SIN(3.1415926535898*('.$lng.'-longitude)/360),2))))*1000 as juli')->having("juli<1000000")->order('juli');
+            $list = $list->field('(2 * 6378.137* ASIN(SQRT(POW(SIN(3.1415926535898*('.$lat.'-latitude)/360),2)+COS(3.1415926535898*'.$lat.'/180)* COS(latitude * 3.1415926535898/180)*POW(SIN(3.1415926535898*('.$lng.'-longitude)/360),2))))*1000 as juli')->having("juli<10000000")->order('juli');
         }
 
         // 若有分页
@@ -47,13 +47,8 @@ class Store extends Common{
             $list = $list->page($page, $limit);
         }
 
-<<<<<<< HEAD
-
-        $list = $list->field('stoId,stono,stoname,county,province,city,address,state,longitude,latitude,isdirect');
-=======
         $list = $list->field('stoId,stono,stoname,county,province,city,address,state,longitude,latitude,isdirect');
 
->>>>>>> 9171a2da435722e6fca6b4a75375447cd6469893
 
         $list = $list->select();
 

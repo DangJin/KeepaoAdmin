@@ -23,6 +23,8 @@
     //获取表单令牌
     'getuser' => ['admin/admin/getuser', ['method' => 'get']],
 
+    'test' => ['admin/test/index'],
+
     //后台管理员
     'admin/add' => ['admin/admin/add', ['method' => 'post']],
     'admin/select' => ['admin/admin/select', ['method' => 'get']],

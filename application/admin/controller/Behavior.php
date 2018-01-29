@@ -216,6 +216,4 @@ class Behavior extends Controller
             ]
         ]);
     }
-
-
 }
