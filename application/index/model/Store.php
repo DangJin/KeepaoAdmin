@@ -47,8 +47,13 @@ class Store extends Common{
             $list = $list->page($page, $limit);
         }
 
+<<<<<<< HEAD
 
         $list = $list->field('stoId,stono,stoname,county,province,city,address,state,longitude,latitude,isdirect');
+=======
+        $list = $list->field('stoId,stono,stoname,county,province,city,address,state,longitude,latitude,isdirect');
+
+>>>>>>> 9171a2da435722e6fca6b4a75375447cd6469893
 
         $list = $list->select();
 
