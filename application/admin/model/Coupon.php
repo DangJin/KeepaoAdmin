@@ -34,18 +34,8 @@ class Coupon extends Model
 
     public function add($data)
     {
-        if (isset($data['condition']) && isset($data['discount']) && isset($data['startDate'])) {
-            if ($this->check($data['condition'], $data['discount'], $data['startDate'])) {
-                return [
-                    'value' => false,
-                    'data'  => [
-                        'message' => '已有相同优惠券'
-                    ]
-                ];
-            }
-        }
 
-        if (isset($data['stoId'])) {
+        if (isset($data['stoId']) && $data['stoId'] != 0) {
             $store = Store::get($data['stoId']);
             if (is_null($store)) {
                 return [
@@ -72,10 +62,6 @@ class Coupon extends Model
                 ]
             ];
         }
-        Db::table('sto_con')->insert([
-            'stoId' => $data['stoId'],
-            'conId' => $coupon->getAttr('couId')
-        ]);
         return [
             'value' => true,
             'data' => [
@@ -131,7 +117,8 @@ class Coupon extends Model
             ];
         }
 
-        Db::table('coupon')->where('couId', 'in', $data)->update(['state' =>  2]);
+
+        Db::table('coupon')->where('couId', 'in', $data)->update(['state' =>  4]);
         return [
             'value' => true,
             'data' => [
@@ -140,7 +127,7 @@ class Coupon extends Model
         ];
     }
 
-    public function renew()
+    public function renew($data)
     {
         if (!isset($data['couId']) || empty($data['couId'])) {
             return [
@@ -150,26 +137,24 @@ class Coupon extends Model
                 ]
             ];
         }
-
-        if (isset($data['condition']) && isset($data['discount']) && isset($data['startDate'])) {
-            if ($this->check($data['condition'], $data['discount'], $data['startDate'], $data['couId'])) {
-                return [
-                    'value' => fasle,
-                    'data'  => [
-                        'message' => '已有相同优惠券'
-                    ]
-                ];
-            }
+        $count = Db::table('use_con')->where('couId', $data['couId'])->count();
+        if ($count) {
+            return [
+                'value' => false,
+                'data' => [
+                    'message' => '此优惠券已经使用不能修改'
+                ]
+            ];
         }
 
         $coupon = new Coupon;
         $data['modifyUser'] = session('sId');
         $data['modifyType'] = 2;
-        $result = $coupon->validate(true)->allowField(true)->isUpdate(true)->save($data);
+        $result = $coupon->allowField(true)->isUpdate(true)->save($data);
 
         if (false == $result) {
             return [
-                'value' => fasle,
+                'value' => false,
                 'data' => [
                     'message' => $coupon->getError()
                 ]
@@ -179,7 +164,7 @@ class Coupon extends Model
         return [
             'value' => true,
             'data' => [
-                'message' => '添加成功'
+                'message' => '修改成功'
             ]
         ];
     }
@@ -190,7 +175,24 @@ class Coupon extends Model
         if (isset($data['stoId'])) {
             $coupon = $coupon->where('stoId', $data['stoId']);
         }
-        $result = $coupon->paginate($limit, false, ['page' => $page]);
+
+        if (isset($data['search'])) {
+            $coupon = $coupon->where('title','like', "%".$data['search']."%");
+        }
+
+        if (isset($data['couId'])) {
+            $coupon = $coupon->where('couId', $data['stoId']);
+        }
+
+        if (isset($data['state'])) {
+            $coupon = $coupon->where('state', $data['state']);
+        }
+        if (isset($data['del']) && $data['del'] == 1) {
+
+            $result = $coupon->paginate($limit, false, ['page' => $page]);
+        } else {
+            $result = $coupon->where('state', '<>', 4)->paginate($limit, false, ['page' => $page]);
+        }
         $flag = false;
         $msg = '没有找到数据';
         if ($result->count() > 0) {

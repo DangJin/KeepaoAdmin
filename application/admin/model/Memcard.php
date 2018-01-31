@@ -94,12 +94,12 @@ class Memcard extends Model
             ];
         }
 
-        $count = Db::table('use_mem')->where('memId', 'in', $data)->where('state', 1)->count();
+        $count = Db::table('stocard')->where('type', 'in', $data)->where('state', 1)->count();
         if ($count > 0) {
             return [
                 'value' => false,
                 'data' => [
-                    'message' => '会员卡正在被使用，不能删除'
+                    'message' => '此类型正在被使用，不能删除'
                 ]
             ];
         }

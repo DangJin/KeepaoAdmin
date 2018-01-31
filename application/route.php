@@ -184,6 +184,15 @@ return [
     // 【前台】门店搜索
     'index/store/search' => ['index/store/search', ['method' => 'GET']],
 
+    //获取常见问题
+    'index/getproblem' => ['index/config/getProblem', ['method' => 'GET']],
+
+    //获取门店会员卡
+    'index/getcard' => ['index/store/getCard', ['method' => 'GET']],
+
+    //获取vips
+    'index/getvips' => ['index/user/getvips', ['method' => 'GET']],
+
     'test' => ['admin/test/index', ['method' => 'GET|POST']],
     // MISS路由
 //    '__miss__' => 'admin/behavior/miss',

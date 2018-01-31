@@ -9,6 +9,7 @@
 namespace app\index\controller;
 
 use app\index\model;
+use think\Request;
 
 class User extends Common {
     public function add_user(){
@@ -82,5 +83,20 @@ class User extends Common {
         $param = $this->param;
 
 
+    }
+
+    public function getvips(Request $request)
+    {
+        if ($request->has('uid', 'param', true)) {
+            $vips = new model\UseSto();
+            $page = $request->has('page', 'param', true) ? $request->param('page') : 1;
+            $limit = $request->has('limit', 'param', true) ? $request->param('page') : 10;
+            return json($vips->getvip($request->param('uid'), $page, $limit));
+        } else {
+            return json([
+                'code' => 400,
+                'error' => '缺少用户ID'
+            ]);
+        }
     }
 }

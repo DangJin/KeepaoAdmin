@@ -9,6 +9,7 @@
 namespace app\admin\model;
 
 
+use think\Exception;
 use think\Model;
 
 class LevCar extends Model
@@ -28,6 +29,32 @@ class LevCar extends Model
         $data['createType'] = 2;
         $data['modifyType'] = 2;
 
+        if (isset($data['levId'])) {
+            $level = Stolevel::get($data['levId']);
+            if (is_null($level)) {
+                return [
+                    'value' => false,
+                    'data' => [
+                        'message' => '没有此等级'
+                    ]
+                ];
+            }
+        }
+
+        if (isset($data['levId'])) {
+            $mem = Memcard::get([
+                'memId' => $data['mcId'],
+                'state' => 1
+            ]);
+            if (is_null($mem)) {
+                return [
+                    'value' => false,
+                    'data' => [
+                        'message' => '没有此类型'
+                    ]
+                ];
+            }
+        }
 
         $levCar = new LevCar;
         $result = $levCar->validate(true)->allowField(true)->save($data);
@@ -70,7 +97,7 @@ class LevCar extends Model
         ];
     }
 
-    public function renew($data)
+    public function renew($data, $host)
     {
         if (!isset($data['id']) || empty($data['id'])) {
             return [
@@ -80,51 +107,97 @@ class LevCar extends Model
                 ]
             ];
         }
-//        try {
-//            if (isset($data['lowest']) && !empty($data['lowest'])) {
-//                $data['lowest'] = $data['lowest'] * 100;
-//            }
-//        } catch (ErrorException $e) {
-//            return [
-//                'value' => false,
-//                'data' => [
-//                    'message' => '每日最低价格类型错误',
-//                ]
-//            ];
-//        }
+
+        if (!isset($data['levId']) || empty($data['levId'])) {
+            return [
+                'value' => false,
+                'data' => [
+                    'message' => '缺少等级ID'
+                ]
+            ];
+        }
+        $level = Stolevel::get([$data['levId']]);
+        if (is_null($level)) {
+            return [
+                'value' => false,
+                'data' => [
+                    'message' => '门店等级不存在'
+                ]
+            ];
+        }
+        if (!isset($data['mcId']) || empty($data['mcId'])) {
+            return [
+                'value' => false,
+                'data' => [
+                    'message' => '缺少等级ID'
+                ]
+            ];
+        }
+        $memcard = Memcard::get($data['mcId']);
+        if (is_null($memcard)) {
+            return [
+                'value' => false,
+                'data' => [
+                    'message' => '会员卡类型不存在'
+                ]
+            ];
+        }
+
         $levCar = new LevCar;
         $data['modifyUser'] = session('sId');
         $data['modifyType'] = 2;
 
-        $result = $levCar->allowField(true)->isUpdate(true)->save($data);
-        $flag = true;
-        //dump($role);
-        $msg = '更新成功';
-        if (false == $result) {
-            $flag = false;
-            $msg = $levCar->getError();
+        $levCar->startTrans();
+        try {
+            $result = $levCar->allowField(['lowest'])->isUpdate(true)->save($data);
+            if (false == $result) {
+                return [
+                    'value' => false,
+                    'data' => [
+                        'message' => '跟新失败'
+                    ]
+                ];
+            }
+            $price = substr_replace($data['lowest'], '.', -2, 0);
+            $message = [
+                'title' => '会员卡价格调整通知',
+                'body' => '即日起所有'.$level->getAttr('name').'等级的门店,'.$memcard->getAttr('name').'最低价格调整为'.$price.'如果未及时替换系统将在3天后自动更新价格',
+                'type' => 5,
+                'state' => 1
+            ];
+            $levCar->table('message')->insert($message);
+            system("echo 'curl http://".$host."/admin/behavior/changePrice/level/".$data['levId']."/type/".$data['mcId']."/price/".$data['lowest']."' | at now +3 days");
+            $levCar->commit();
+        } catch (Exception $e) {
+            $levCar->rollback();
+            return [
+                'value' => false,
+                'data' => [
+                    'message' => $e->getMessage()
+                ]
+            ];
         }
-        //dump($msg);
         return [
-            'value' => $flag,
+            'value' => true,
             'data' => [
-                'message' => $msg,
+                'message' => '更新成功'
             ]
         ];
-
     }
 
     public function select($data, $page = 1, $limit = 10)
     {
-        $stolevel = new Stolevel;
+        $levcar = new LevCar;
         if (isset($data['mcId']))
-            $stolevel = $stolevel->where('mcId',$data['mcId']);//->where('type', $type)->order('state')->paginate($limit, false, ['page' => $page]);
+            $levcar = $levcar->where('mcId',$data['mcId']);//->where('type', $type)->order('state')->paginate($limit, false, ['page' => $page]);
         if (isset($data['levId']))
-            $stolevel = $stolevel->where('levId',$data['levId']);
-        $stolevel = $stolevel->paginate($limit, false, ['page' => $page]);
+            $levcar = $levcar->where('levId',$data['levId']);
+        if (isset($data['id']))
+            $levcar = $levcar->where('id',$data['id']);
+        $levcar = $levcar->paginate($limit, false, ['page' => $page]);
         $flag = false;
         $msg = '没有找到数据';
-        if ($stolevel->count() > 0) {
+        if ($levcar->count() > 0) {
             $flag = true;
             $msg = '查询成功';
         }
@@ -132,7 +205,7 @@ class LevCar extends Model
             'value' => $flag,
             'data' => [
                 'message' => $msg,
-                'data' => $stolevel
+                'data' => $levcar
             ]
         ];
     }

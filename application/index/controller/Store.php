@@ -10,6 +10,7 @@ namespace app\index\controller;
 
 use app\index\model;
 use think\Db;
+use think\Request;
 
 class Store extends Common {
     /**
@@ -82,5 +83,31 @@ class Store extends Common {
         $data['images']  = $images;
 
         return result_array(['data' => $data]);
+    }
+
+    public function getCard(Request $request)
+    {
+        $data = [];
+
+        if ($request->has('stoId', 'param', true)) {
+            $data['stoId'] = $request->param('stoId');
+        }
+
+        if ($request->has('id', 'param', true)) {
+            $data['stoId'] = $request->param('stoId');
+        }
+
+        $page = $request->has('page', 'param', true) ? $request->param('page') : 1;
+        $limit = $request->has('limit', 'param', true) ? $request->param('page') : 10;
+
+        if (empty($data)) {
+            return json([
+                'code' => 400,
+                'error' => '参数不能为空'
+            ]);
+        }
+        $stocard = new model\Stocard();
+
+        return json($stocard->getCard($data, $page, $limit));
     }
 }

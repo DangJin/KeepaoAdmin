@@ -24,15 +24,15 @@ class LevCar extends Common
     public function add(Request $request)
     {
         if ($request->isPost()) {
-            if (!$request->has('csrf', 'header', true) || $request->header('csrf') != session('csrf')) {
-                return json([
-                    'value' => false,
-                    'data' => [
-                        'message' => '请不要重复提交数据',
-                    ]
-                ]);
-            }
-            session('csrf', md5($_SERVER['REQUEST_TIME_FLOAT']));
+//            if (!$request->has('csrf', 'header', true) || $request->header('csrf') != session('csrf')) {
+//                return json([
+//                    'value' => false,
+//                    'data' => [
+//                        'message' => '请不要重复提交数据',
+//                    ]
+//                ]);
+//            }
+//            session('csrf', md5($_SERVER['REQUEST_TIME_FLOAT']));
             return json($this->levCar->add($request->param()));
         }
     }
@@ -54,7 +54,7 @@ class LevCar extends Common
 
     public function update(Request $request)
     {
-        return json($this->levCar->renew($request->param()));
+        return json($this->levCar->renew($request->param(),$request->host()));
     }
 
     public function select(Request $request)
@@ -68,6 +68,11 @@ class LevCar extends Common
         if ($request->has('levId', 'param', true)) {
 
             $data['levId'] = $request->param('levId');
+        }
+
+        if ($request->has('id', 'param', true)) {
+
+            $data['id'] = $request->param('id');
         }
 
         if ($request->has('page', 'param', true))

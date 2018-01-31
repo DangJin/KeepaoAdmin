@@ -216,4 +216,24 @@ class Behavior extends Controller
             ]
         ]);
     }
+
+    public function changePrice(Request $request) {
+        if ($request->has('level','param', true)) {
+            $level = $request->param('level');
+            if ($request->has('type','param', true)) {
+                $type = $request->param('type');
+                if ($request->has('price','param', true)) {
+                    $price = $request->param('price');
+                    if (preg_match('/^[0-9]+$/', $price)) {
+                        $result = \app\index\model\Store::where('level', $request->param('level'))->field('stoId')->select();
+                        $stores = [];
+                        foreach ($result as $item) {
+                            array_push($stores, $item->getData('stoId'));
+                        }
+                        \app\admin\model\Stocard::where('stoId', 'in', $stores)->where('type', $type)->update(['price' => $price]);
+                    }
+                }
+            }
+        }
+    }
 }

@@ -33,10 +33,10 @@ class Store extends Model
 //        return $status[$value];
 //    }
 
-    public function coupons()
-    {
-        return $this->belongsToMany('Coupon','sto_con', 'conId', 'stoId');
-    }
+//    public function coupons()
+//    {
+//        return $this->belongsToMany('Coupon','sto_con', 'conId', 'stoId');
+//    }
 
     public function equs()
     {
@@ -267,36 +267,37 @@ class Store extends Model
         return $randkey;
     }
 
-    public function getcou($stoId, $page = 1, $limit = 10)
-    {
-        if (empty($stoId)) {
-            return [
-                'value' => false,
-                'data' => [
-                    'message' => '角色Id不能为空'
-                ]
-            ];
-        }
+//    public function getcou($stoId, $page = 1, $limit = 10)
+//    {
+//        if (empty($stoId)) {
+//            return [
+//                'value' => false,
+//                'data' => [
+//                    'message' => '角色Id不能为空'
+//                ]
+//            ];
+//        }
+//
+//        $store = Store::get($stoId);
+//        if (is_null($store)) {
+//            return [
+//                'value' => false,
+//                'data' => [
+//                    'message' => '门店不存在'
+//                ]
+//            ];
+//        }
+//        //dump($admin->roles());
+//        $coupons = $store->coupons()->paginate($limit, false, ['page' => $page]);
+//        return [
+//            'value' => true,
+//            'data' => [
+//                'message' => '查询成功',
+//                'data' => $coupons
+//            ]
+//        ];
+//    }
 
-        $store = Store::get($stoId);
-        if (is_null($store)) {
-            return [
-                'value' => false,
-                'data' => [
-                    'message' => '门店不存在'
-                ]
-            ];
-        }
-        //dump($admin->roles());
-        $coupons = $store->coupons()->paginate($limit, false, ['page' => $page]);
-        return [
-            'value' => true,
-            'data' => [
-                'message' => '查询成功',
-                'data' => $coupons
-            ]
-        ];
-    }
     public function getequ($stoId, $page = 1, $limit = 10)
     {
         if (empty($stoId)) {

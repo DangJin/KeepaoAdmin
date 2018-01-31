@@ -25,14 +25,14 @@ class Coupon extends Common
     public function add(Request $request)
     {
         if ($request->isPost()) {
-            if (!$request->has('csrf', 'header', true) || $request->header('csrf') != session('csrf')) {
-                return json([
-                    'value' => false,
-                    'data' => [
-                        'message' => '请不要重复提交数据',
-                    ]
-                ]);
-            }
+//            if (!$request->has('csrf', 'header', true) || $request->header('csrf') != session('csrf')) {
+//                return json([
+//                    'value' => false,
+//                    'data' => [
+//                        'message' => '请不要重复提交数据',
+//                    ]
+//                ]);
+//            }
             session('csrf', md5($_SERVER['REQUEST_TIME_FLOAT']));
             return json($this->coupon->add($request->param()));
         }
@@ -63,6 +63,22 @@ class Coupon extends Common
         $data = [];
         if ($request->has('stoId', 'param', true)) {
             $data['stoId'] = $request->param('stoId');
+        }
+
+        if ($request->has('search', 'param', true)) {
+            $data['search'] = $request->param('search');
+        }
+
+        if ($request->has('couId', 'param', true)) {
+            $data['couId'] = $request->param('couId');
+        }
+
+        if ($request->has('state', 'param', true)) {
+            $data['state'] = $request->param('state');
+        }
+
+        if ($request->has('del', 'param', true)) {
+            $data['del'] = $request->param('del');
         }
 
         if ($request->has('page', 'param', true)) {

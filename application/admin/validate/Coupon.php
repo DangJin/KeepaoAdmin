@@ -16,10 +16,11 @@ class Coupon extends Validate
     protected $rule = [
         'startDate' => 'require',
         'endDate' => 'require',
-        'condition' => 'require',
+        'condition' => 'require|egt:0',
         'stoId' => 'require',
-        'discount' => 'require',
+        'discount' => 'require|egt:0',
         'num' => 'require',
+        'title' => 'require',
     ];
 
     protected $message = [
@@ -29,5 +30,6 @@ class Coupon extends Validate
         'stoId.require' => '门店Id不能为空',
         'discount.require' => '优惠价格不能为空',
         'num.require' => '数量不能为空',
+        'title.require' => '名称不能为空',
     ];
 }

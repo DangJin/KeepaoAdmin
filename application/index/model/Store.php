@@ -11,6 +11,7 @@ namespace app\index\model;
 
 
 use think\Db;
+use think\Request;
 
 class Store extends Common{
     /**
@@ -151,4 +152,6 @@ class Store extends Common{
 
         return $list;
     }
+
+
 }
