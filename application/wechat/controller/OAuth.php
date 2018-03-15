@@ -8,41 +8,71 @@
 
 namespace app\wechat\controller;
 
+use app\admin\model\User;
 use EasyWeChat\Foundation\Application;
+use think\Config;
+use think\Db;
 use think\Session;
 
 
-class OAuth extends Common {
-        /**
-     * Function: oauth_callback
-     * Author  : PengZong
-     * DateTime: ${DATE} ${TIME}
-     *
-     * 授权成功回调
+class OAuth extends Common
+{
+
+
+    /**
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
      */
-    function oauth_callback(){
-        $conf= config("wechat");
-        $app = new Application($conf);
-        $oauth = $app->oauth;
+    function oauth()
+    {
+        if (Session::get('wx_user')) {
+            return returnJson(200, 200, Session::get('wx_user'));
+        }
+        Config::load(APP_PATH.'/wechat/config.php');
+        $conf            = Config::get("wxconfig");
+        $app             = new Application($conf);
+        $oauth           = $app->oauth;
+        $user            = $oauth->user();  //获取已授权的用户
+        $uid             = $this->getUserId($user);
+        $user_arr        = $user->toArray();
+        $user_arr['uid'] = $uid;
 
-        $user = $oauth->user();  //获取已授权的用户
-        // $user 可以用的方法:
-        // $user->getId();  // 对应微信的 OPENID
-        // $user->getNickname(); // 对应微信的 nickname
-        // $user->getName(); // 对应微信的 nickname
-        // $user->getAvatar(); // 头像网址
-        // $user->getOriginal(); // 原始API返回的结果
-        // $user->getToken(); // access_token， 比如用于地址共享时使用
-
-        Session::set('wechat_user',$user);
-        $targetUrl =empty(Session::get('target_url')) ? '/index.php/index/oauth/oauth_success' : Session::get('target_url');
-        header('location:'. $targetUrl); // 跳转到 user/profile
+        return returnJson(200, 200, $user_arr);
     }
 
-    //授权成功之后开始输出信息
-    function oauth_success(){
-        $user=Session::get('wechat_user');
-        //将用户的基本信息保存在数据库中，然后提供下次进行使用
-        print_r($user);
+
+    /**
+     * @param \Overtrue\Socialite\User $user
+     *
+     * @return mixed|string
+     * @throws \think\db\exception\DataNotFoundException
+     * @throws \think\db\exception\ModelNotFoundException
+     * @throws \think\exception\DbException
+     */
+    public function getUserId(\Overtrue\Socialite\User $user)
+    {
+        $user_arr = $user->toArray();
+        $openid   = $user->getId();
+        if ( ! empty($openid)) {
+            $_user = Db::table('user')->where('openid', $openid)->find();
+            if ( ! empty($_user)) {
+                //                session('user_id', $_user['uId']);
+                return $_user['uId'];
+            } else {
+                $data = [
+                    'openId'  => $openid,
+                    'name'    => $user_arr['original']['nickname'],
+                    'heading' => $user_arr['original']['headimgurl'],
+                    'gender'  => $user_arr['original']['sex'],
+                ];
+
+                $res = Db::table('user')->insert($data);
+                if ($res === 1) {
+                    return Db::name('user')->getLastInsID();
+                }
+            }
+
+        }
     }
 }

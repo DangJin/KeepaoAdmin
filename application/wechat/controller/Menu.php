@@ -9,68 +9,98 @@
 namespace app\wechat\controller;
 
 
+use app\admin\model\Config;
 use EasyWeChat\Foundation\Application;
 use think\config\driver\Json;
+use think\Request;
 
-class Menu extends Common {
-    public function add_menu(){
-        $conf = config("wechat");
-        $app = new Application($conf);
+class Menu extends Common
+{
 
-        $menu = $app->menu;
+    private $app;
 
-//        $content = file_get_contents("php://input");
+    public function __construct(\think\Request $request = null)
+    {
+        parent::__construct($request);
+        \think\Config::load("APP_PATH.'/wechat/config.php'");
+        $conf      = \think\Config::get("wxconfig");
+        $this->app = new Application($conf);
+    }
 
+    public function add_menu()
+    {
 
-        $button = [];
-        $button = $_POST["buttons"];
+        $menu    = $this->app->menu;
+        $buttons = [
+            [
+                "type" => "scancode_waitmsg",
+                "name" => "扫一扫",
+                "key"  => "keepao_1",
+            ],
+            [
+                "name"       => "KP",
+                "sub_button" => [
+                    [
+                        "type" => "view",
+                        "name" => "码上开跑",
+                        "url"  => "http://kp.codwiki.cn/public/fore/storeList.html",
+                    ],
+                    [
+                        "type" => "view",
+                        "name" => "排行榜",
+                        "url"  => "http://kp.codwiki.cn/public/fore/ranking.html",
+                    ],
+                    [
+                        "type" => "view",
+                        "name" => "KP官网",
+                        "url"  => "http://www.keepao.com/",
+                    ],
+                ],
+            ],
+            [
+                "name"       => "我",
+                "sub_button" => [
+                    [
+                        "type" => "view",
+                        "name" => "个人主页",
+                        "url"  => "http://kp.codwiki.cn/public/fore/myMessage.html",
+                    ],
+                    [
+                        "type" => "view",
+                        "name" => "我的钱包",
+                        "url"  => "http://kp.codwiki.cn/public/fore/myWallet.html",
+                    ],
+                    [
+                        "type" => "view",
+                        "name" => "我的消息",
+                        "url"  => "http://kp.codwiki.cn/public/fore/systemNews.html",
+                    ],
+                ],
+            ],
+        ];
 
-//        $buttons = [
-//            [
-//                "type" => "click",
-//                "name" => "今日歌曲",
-//                "key"  => "V1001_TODAY_MUSIC"
-//            ],
-//            [
-//                "name"       => "菜单",
-//                "sub_button" => [
-//                    [
-//                        "type" => "view",
-//                        "name" => "搜索",
-//                        "url"  => "http://www.soso.com/"
-//                    ],
-//                    [
-//                        "type" => "view",
-//                        "name" => "视频",
-//                        "url"  => "http://v.qq.com/"
-//                    ],
-//                    [
-//                        "type" => "click",
-//                        "name" => "赞一下我们",
-//                        "key" => "V1001_GOOD"
-//                    ],
-//                ],
-//            ],
-//        ];
+        $res = $menu->add($buttons);
 
-        $menu->add($button);
+        return returnJson(200, 200, $res);
     }
 
     //获取菜单列表
-    public function menu_list(){
-        $conf = config("wechat");
-        $app = new Application($conf);
-
-        $menu = $app->menu;
+    public function menu_list()
+    {
+        //        $app  = new Application($conf);
+        //
+        $menu  = $this->app->menu;
         $menus = $menu->all();
 
-        return $menus;
+        return $menus->toJson();
+        //        return $menus;
     }
 
     //删除全部菜单
-    public function del_menus(){
+    public function del_menus()
+    {
         $conf = config("wechat");
-        $app = new Application($conf);
+        $app  = new Application($conf);
 
         $menu = $app->menu;
 
@@ -78,9 +108,10 @@ class Menu extends Common {
     }
 
     //按照id删除菜单
-    public function del_menu($id){
+    public function del_menu($id)
+    {
         $conf = config("wechat");
-        $app = new Application($conf);
+        $app  = new Application($conf);
 
         $menu = $app->menu;
 

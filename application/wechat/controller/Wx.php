@@ -11,45 +11,34 @@ namespace app\wechat\controller;
 use Hooklife\ThinkphpWechat\Wechat;
 use EasyWeChat\Foundation\Application;
 use think\Config;
+use think\Session;
 
-class Wx extends Common {
-    public function serve(){
-        $conf= Config::get("wechat");
+class Wx extends Common
+{
 
-//        $options = [
-//            'app_id'  => 'wxbc45d17cfa983e08',                                      // AppID
-//            'secret'  => 'd2de6b7da64a225c08a6ab3e788e986e',                        // AppSecret
-//            'token'   => 'FlappyWorld',                                             // Token
-//            'aes_key' => 'bdjFkM6kWxx7TGYTdOQ6SyOCTLuNVWWRkovM1cSH6rA',             // EncodingAESKey，安全模式下请一定要填写！！！
-//            'log' => [
-//                'level' => 'debug',
-//                'file' => '/tmp/easywechat.log',
-//            ],
-//            // ...
-//        ];
 
-        $app = new Application($conf);
+    /**
+     * @throws \EasyWeChat\Core\Exceptions\InvalidArgumentException
+     * @throws \EasyWeChat\Server\BadRequestException
+     */
+    public function serve()
+    {
+        $conf   = Config::get("wxconfig");
+        $app    = new Application($conf);
         $server = $app->server;
 
-        $server->setMessageHandler(function ($message) {
-            // $message->FromUserName // 用户的 openid
-            // $message->MsgType // 消息类型：event, text....
-
-            return "您好！欢迎关注我!".$message;
-        });
-
-//        $user = $app->user;
-//
-//        $server->setMessageHandler(function($message) use ($user) {
-//            $fromUser = $user->get($message->FromUserName);
-//
-//            return "{$fromUser->nickname} 您好！欢迎关注 !";
-//        });
-
+        $server->setMessageHandler(
+            function ($message) {
+                return "您好！欢迎关注我!".$message;
+            }
+        );
         $server->serve()->send();
     }
 
-    public function index(){
-        return "123123";
+    public function index()
+    {
+        dump(Session::get('wechat_user'));
+        dump(Session::get('user_id'));
+        Session::set('wechat_user',null);
     }
 }

@@ -1,23 +1,21 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: PengZong
- * Date: 18/1/5
- * Time: 上午11:55
- */
 
-namespace app\wechat\controller;
+namespace app\wxpay\controller;
 
-
+use EasyWeChat\Foundation\Application;
 use think\Controller;
-use Hooklife\ThinkphpWechat\Wechat;
+use think\Request;
+use think\Config;
 
 class Common extends Controller
 {
 
-    public function _initialize()
+    protected $payment;
+    protected $config;
+
+    public function __construct(\think\Request $request = null)
     {
-        parent::_initialize();
+        parent::__construct($request);
         header('Access-Control-Allow-Origin: *');
         header('Access-Control-Allow-Credentials: true');
         header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');
@@ -25,5 +23,10 @@ class Common extends Controller
             "Access-Control-Allow-Headers: Origin, X-Requested-With, access-token, refresh-token, Content-Type, Accept, csrf, authKey, sessionId"
         );
         header('Content-Type:text/html; charset=utf-8');
+        if (Config::has('wxconfig')) {
+            $this->config = Config::get('wxconfig');
+        }
+        $app           = new Application($this->config);
+        $this->payment = $app->payment;
     }
 }
