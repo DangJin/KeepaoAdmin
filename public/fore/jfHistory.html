@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>积分历史记录</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/bootstrap.3.3.7min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script data-main="scripts/jfHistory" src="js/require.js"></script>
+</head>
+<body>
+<div class="jfHistory">
+    <div class="onload">
+        <img src="image/loading.png" alt="">
+        <p></p>
+    </div>
+</div>
+<script type="text/html" id="jfHistory">
+    <div class="jf_top">
+        <img src="image/list3.jpg" alt="">
+        <div class="bg"></div>
+        <div class="content">
+            <div>
+                <h5>{{data.point[0].point}}</h5>
+                <span>当前积分</span>
+            </div>
+        </div>
+        <div class="qiandao"><a>签到</a></div>
+    </div>
+    <div class="jfHistory_title">
+        <h5>历史记录</h5>
+    </div>
+    <div class="jfHistory_content">
+        <ul>
+            {{each data.data.data}}
+            <li>
+                <h5>{{$value.name}}</h5>
+                <p>{{$value.createTime}}</p>
+                <span>{{$value.type == 1? '+' : '-'}}{{$value.point}}</span>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+</script>
+</body>
+</html>

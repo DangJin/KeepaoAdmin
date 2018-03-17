@@ -107,6 +107,7 @@ class Message extends Common{
         //再次查询全部消息
         $data = $usemes->messageSelect($uid,$type,$state);
 
+
         if ($type) {
             $usemes->where('uId', $uid)->where('state', '<>', 2)->where('type', $type)->update(['state' => 2]);
         } else {

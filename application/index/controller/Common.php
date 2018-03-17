@@ -26,7 +26,7 @@ class Common extends \app\common\controller\Common {
     }
 
     protected $beforeActionList = [
-        'first'  =>  ['only'=>'thumb_up,update_user,find_user,store_details,store_select,statistics,user_select,message_add,cou_select,message_select,chart_select,cou_select,usercou_select,get_coupon,equ_select'],   //需要验证请求是否合法的方法
+//        'first'  =>  ['only'=>'thumb_up,update_user,find_user,store_details,store_select,statistics,user_select,message_add,cou_select,message_select,chart_select,cou_select,usercou_select,get_coupon,equ_select'],   //需要验证请求是否合法的方法
 
         'second' =>  ['only'=>'thumb_up,set_goal,message_add,get_coupon'], //需要添加数据的时候默认参数的方法
         'third'  =>  ['only'=>'update_user,use_soupon']    //需要更新数据的时候默认参数的方法

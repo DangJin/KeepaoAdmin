@@ -136,11 +136,13 @@
 
 \think\Route::group(
     'weixin', [
-        'init'     => ['wechat/Wx/serve', ['method' => 'GET']],
+        'init'     => ['wechat/Wx/serve', ['method' => 'GET|POST']],
         'oauth'    => ['wechat/OAuth/oauth', ['method' => 'GET']],
         'wxconfig' => ['wechat/Jssdk/getWxConfig', ['method' => 'POST']],
+        'qrcode'   => ['wechat/QrCode/createQrCode', ['method' => 'GET']],
+        'test'     => ['wechat/QrCode/test', ['method' => 'GET']],
         'menu'     => ['wechat/Menu/menu_list', ['method' => 'GET']],
-        'add_menu'     => ['wechat/Menu/add_menu', ['method' => 'GET']],
+        'add_menu' => ['wechat/Menu/add_menu', ['method' => 'GET']],
     ]
 );
 
@@ -219,9 +221,30 @@ return [
     //获取vips
     'index/getvips'          => ['index/user/getvips', ['method' => 'GET']],
 
-    'index/door'          => ['index/door/index', ['method' => 'GET']],
+    'index/door'            => ['index/door/index', ['method' => 'GET']],
 
-    //     MISS路由
+    //关注
+    'index/follow/follow'   => ['index/follow/follow', ['method' => 'POST']],
+    'index/follow/unfollow' => ['index/follow/unfollow', ['method' => 'POST']],
+    'index/follow/select'   => ['index/follow/select', ['method' => 'GET']],
+
+    //规则
+    'index/rule/getsport'   => ['index/rule/getsport', ['method' => 'GET']],
+    'index/rule/getcharm'   => ['index/rule/getcharm', ['method' => 'GET']],
+    'index/rule/getdetails' => ['index/rule/getdetails', ['method' => 'GET']],
+    'index/rule/level'      => ['index/rule/level', ['method' => 'GET']],
+
+    //积分明细
+    'index/pdetails/select' => ['index/pointDet/getdetails',
+                                ['method' => 'GET']],
+    //零钱明细
+    'index/getMoneydet'     => ['index/moneyDet/getMoenydet',
+                                ['method' => 'GET']],
+    //签到
+    'index/sign'            => ['index/sign/sign', ['method' => 'POST']],
+
+    'test' => ['admin/test/index', ['method' => 'GET|POST']],
+    // MISS路由
     //    '__miss__' => 'admin/behavior/miss',
 
 ];

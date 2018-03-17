@@ -11,6 +11,7 @@ namespace app\admin\model;
 
 use think\Db;
 use think\Exception;
+use think\exception\ErrorException;
 use think\Model;
 use think\Request;
 
@@ -138,7 +139,13 @@ class Store extends Model
             foreach ($imgs as $img)
             {
                 $tmp = Imgs::get($img['imgId']);
-                unlink($tmp->getAttr('path').$tmp->getAttr('name'));
+                try {
+                    unlink($tmp->getAttr('path').$tmp->getAttr('name'));
+                } catch (Exceptiond $e) {
+
+                } catch (ErrorException $e) {
+
+                }
             }
         }
 

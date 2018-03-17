@@ -38,16 +38,21 @@ class AccountDet extends Model
     }
 
     public function select($data, $time, $page = 1, $limit = 10) {
-        if (isset($data['stoId'])) {
-            $result = AccountDet::where('stoId', $data['stoId'])->whereTime('createTime', $time)->order('createTime desc')->paginate($limit, false, ['page' => $page]);
+        $result = new AccountDet;
+        if (!empty($data['stoId'])) {
+            $result = $result->where('stoId', $data['stoId']);//->order('createTime desc')->paginate($limit, false, ['page' => $page]);
         }
 
-        if (isset($data['useId'])) {
-            $result = AccountDet::where('useId', $data['useId'])->whereTime('createTime', $time)->order('createTime desc')->paginate($limit, false, ['page' => $page]);
+        if (!empty($data['useId'])) {
+            $result = $result->where('useId', $data['useId']);//->order('createTime desc')->paginate($limit, false, ['page' => $page]);
         }
-        if (!isset($result)) {
-            $result = AccountDet::whereTime('createTime', $time)->order('createTime desc')->paginate($limit, false, ['page' => $page]);
+
+        if (!empty($data['type'])) {
+            $result = $result->where('type', $data['type']);//->order('createTime desc')->paginate($limit, false, ['page' => $page]);
         }
+
+        $result = $result->whereTime('createTime', $time)->order('createTime desc')->paginate($limit, false, ['page' => $page]);
+
 
         if ($result->count() > 0) {
             return [
@@ -69,18 +74,26 @@ class AccountDet extends Model
 
 
     public function selectRange($data, $time, $page = 1, $limit = 10) {
-        if (isset($data['stoId'])) {
-            $result = AccountDet::where('stoId', $data['stoId'])->whereTime('createTime', 'between', $time)->order('createTime desc')->paginate($limit, false, ['page' => $page]);
+        $result = new AccountDet;
+        if (!empty($data['stoId'])) {
+            $result = $result->where('stoId', $data['stoId']);//->whereTime('createTime', 'between', $time)->order('createTime desc')->paginate($limit, false, ['page' => $page]);
         }
 
-        if (isset($data['useId'])) {
-            $result = AccountDet::where('useId', $data['useId'])->whereTime('createTime', 'between', $time)->order('createTime desc')->paginate($limit, false, ['page' => $page]);
+        if (!empty($data['useId'])) {
+            $result = $result->where('useId', $data['useId']);//->whereTime('createTime', 'between', $time)->order('createTime desc')->paginate($limit, false, ['page' => $page]);
+        }
+
+        if (!empty($data['type'])) {
+            $result = $result->where('type', $data['type']);//->whereTime('createTime', 'between', $time)->order('createTime desc')->paginate($limit, false, ['page' => $page]);
         }
 
         if (!isset($result)) {
-            $result = AccountDet::whereTime('createTime', 'between', $time)->order('createTime desc')->paginate($limit, false, ['page' => $page]);
+            $result = $result->whereTime('createTime', 'between', $time);//->order('createTime desc')->paginate($limit, false, ['page' => $page]);
         }
-        dump(123);
+
+        $result = $result->order('createTime desc')->paginate($limit, false, ['page' => $page]);
+//        dump(123);
+
         if ($result->count() > 0) {
             return [
                 'value' => true,

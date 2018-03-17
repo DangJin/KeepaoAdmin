@@ -23,25 +23,20 @@ class PointRuleDet extends Common
 
     public function select(Request $request)
     {
-        if ($request->has('prId', 'param', true))
-        {
+        $type = '';
+        if ($request->has('prId', 'param', true)) {
             $type = $request->param('prId');
-            if ($request->has('page', 'param', true)) {
-                $page = $request->param('page');
-                if ($request->has('limit', 'param', true)) {
-                    return json($this->pointRuleDet->select($type, $page, $request->param('limit')));
-                }
-                return json($this->pointRuleDet->select($type, $page));
-            }
-            return json($this->pointRuleDet->select($type));
-        } else {
-            return json([
-                'value' => false,
-                'data' => [
-                    'message' => '规则类型不能为空'
-                ]
-            ]);
         }
+
+        if ($request->has('page', 'param', true)) {
+            $page = $request->param('page');
+            if ($request->has('limit', 'param', true)) {
+                return json($this->pointRuleDet->select($type, $page, $request->param('limit')));
+            }
+            return json($this->pointRuleDet->select($type, $page));
+        }
+        return json($this->pointRuleDet->select($type));
+
     }
 
     public function add(Request $request)

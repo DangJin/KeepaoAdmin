@@ -1,0 +1,3642 @@
+@charset "UTF-8";
+a {
+  color: #333;
+  text-decoration: none !important; }
+
+li {
+  list-style: none !important; }
+
+.onload {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .onload img {
+    width: 200px; }
+  .onload h5 {
+    margin-top: 20px;
+    font-size: 14px; }
+  .onload p {
+    width: 20px;
+    height: 100px;
+    top: -90px;
+    transform: skewX(30deg);
+    background: rgba(242, 242, 242, 0.6);
+    position: relative;
+    animation: mymove 5s infinite;
+    -webkit-animation: mymove 2s infinite;
+    /*Safari and Chrome*/ }
+
+@keyframes mymove {
+  from {
+    left: -100px; }
+  to {
+    left: 200px; } }
+@-webkit-keyframes mymove /*Safari and Chrome*/ {
+  from {
+    left: -100px; }
+  to {
+    left: 200px; } }
+.storeList {
+  float: left;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #fff; }
+  .storeList .onload > p {
+    background: rgba(255, 255, 255, 0.6); }
+  .storeList .storeList_topSearch {
+    float: left;
+    width: 100%;
+    padding: 15px 5px; }
+    .storeList .storeList_topSearch label {
+      float: left;
+      width: 60px;
+      height: 30px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center; }
+      .storeList .storeList_topSearch label i {
+        font-size: 20px; }
+      .storeList .storeList_topSearch label select {
+        font-size: 16px;
+        color: #666;
+        padding: 0;
+        border: none;
+        appearance: none;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        background: none !important; }
+        .storeList .storeList_topSearch label select:focus {
+          border: none;
+          outline: none; }
+    .storeList .storeList_topSearch .search_input {
+      float: left;
+      width: calc(100% - 110px);
+      height: 30px;
+      border-radius: 4px;
+      background-color: #efefef; }
+      .storeList .storeList_topSearch .search_input img {
+        float: left;
+        width: 24px;
+        margin: 3px; }
+      .storeList .storeList_topSearch .search_input a {
+        display: inline-block;
+        float: left;
+        width: calc(100% - 30px);
+        height: 30px;
+        line-height: 30px;
+        font-size: 14px;
+        color: #999; }
+    .storeList .storeList_topSearch .address {
+      float: right;
+      width: 45px;
+      text-align: center; }
+      .storeList .storeList_topSearch .address img {
+        width: 26px;
+        margin-top: 2px; }
+  .storeList .storeList_list {
+    float: left;
+    width: 100%;
+    padding: 0 12px; }
+    .storeList .storeList_list .item {
+      float: left;
+      width: 100%;
+      height: 96px;
+      margin-bottom: 10px;
+      padding: 8px;
+      background-color: #fff;
+      box-shadow: 0 0 5px #ccc; }
+      .storeList .storeList_list .item > a > img {
+        float: left;
+        width: 102px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 5px; }
+      .storeList .storeList_list .item > a .content {
+        position: relative;
+        float: left;
+        width: calc(100% - 144px);
+        height: 80px;
+        margin-left: 12px; }
+        .storeList .storeList_list .item > a .content h5 {
+          float: left;
+          width: 100%;
+          height: 24px;
+          margin: 0;
+          color: #444;
+          font-size: 15px;
+          line-height: 24px;
+          word-break: break-all;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          /** 将对象作为伸缩盒子模型显示 **/
+          -webkit-box-orient: vertical;
+          /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+          -webkit-line-clamp: 1;
+          /** 显示的行数 **/
+          overflow: hidden;
+          /** 隐藏超出的内容 **/ }
+        .storeList .storeList_list .item > a .content span {
+          float: left;
+          display: inline-block;
+          font-size: 13px;
+          color: #64be8c; }
+          .storeList .storeList_list .item > a .content span img {
+            display: none; }
+        .storeList .storeList_list .item > a .content p {
+          float: left;
+          width: 100%;
+          color: #999;
+          margin: 0;
+          margin-top: 5px;
+          font-size: 12px;
+          line-height: 16px;
+          word-break: break-all;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          /** 将对象作为伸缩盒子模型显示 **/
+          -webkit-box-orient: vertical;
+          /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+          -webkit-line-clamp: 1;
+          /** 显示的行数 **/
+          overflow: hidden;
+          /** 隐藏超出的内容 **/ }
+          .storeList .storeList_list .item > a .content p:nth-of-type(2) {
+            color: #fa4646; }
+        .storeList .storeList_list .item > a .content .operation {
+          position: absolute;
+          width: 20px;
+          height: 80px;
+          top: 0;
+          right: -30px;
+          text-align: center; }
+          .storeList .storeList_list .item > a .content .operation i {
+            margin-top: 40px;
+            font-size: 24px;
+            color: #64be8c; }
+      @media (min-width: 350px) {
+        .storeList .storeList_list .item > a .content {
+          position: relative;
+          float: left;
+          width: calc(100% - 114px);
+          height: 80px;
+          margin-left: 12px; }
+          .storeList .storeList_list .item > a .content h5 {
+            float: left;
+            width: 50%;
+            height: 38px;
+            margin: 0;
+            color: #444;
+            font-size: 16px;
+            line-height: 34px;
+            word-break: break-all;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            /** 将对象作为伸缩盒子模型显示 **/
+            -webkit-box-orient: vertical;
+            /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+            -webkit-line-clamp: 1;
+            /** 显示的行数 **/
+            overflow: hidden;
+            /** 隐藏超出的内容 **/ }
+          .storeList .storeList_list .item > a .content span {
+            display: inline-block;
+            float: right;
+            width: calc(50% - 10px);
+            height: 34px;
+            margin-right: 10px;
+            text-align: right;
+            font-size: 13px;
+            line-height: 34px;
+            color: #64be8c; }
+            .storeList .storeList_list .item > a .content span img {
+              display: inline-block;
+              width: 22px;
+              margin-top: -4px; }
+          .storeList .storeList_list .item > a .content p {
+            float: left;
+            width: calc(100% - 30px);
+            color: #999;
+            margin: 0;
+            margin-top: 5px;
+            font-size: 12px;
+            line-height: 18px;
+            word-break: break-all;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            /** 将对象作为伸缩盒子模型显示 **/
+            -webkit-box-orient: vertical;
+            /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+            -webkit-line-clamp: 1;
+            /** 显示的行数 **/
+            overflow: hidden;
+            /** 隐藏超出的内容 **/ }
+          .storeList .storeList_list .item > a .content .operation {
+            position: absolute;
+            width: 20px;
+            height: 80px;
+            top: 0;
+            right: 0;
+            text-align: center; }
+            .storeList .storeList_list .item > a .content .operation i {
+              margin-top: 40px;
+              font-size: 24px;
+              color: #64be8c; } }
+
+/*门店列表*/
+/*会员卡*/
+.vipCard {
+  float: left;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f2f2f2; }
+  .vipCard .top {
+    float: left;
+    width: 100%; }
+    .vipCard .top img {
+      float: left;
+      width: 100%; }
+  .vipCard .vipCard_roll {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 800px;
+    overflow: hidden; }
+    .vipCard .vipCard_roll .list {
+      position: absolute;
+      width: 200%;
+      top: 0;
+      left: 0;
+      transition: all 0.3s;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start;
+      z-index: 999; }
+      .vipCard .vipCard_roll .list .item {
+        position: relative;
+        float: left;
+        width: 100%; }
+        .vipCard .vipCard_roll .list .item #toJF {
+          position: absolute;
+          width: 30%;
+          top: 0;
+          right: 12px;
+          text-align: right; }
+          .vipCard .vipCard_roll .list .item #toJF i {
+            float: right;
+            margin-top: 4px;
+            margin-left: 6px;
+            font-size: 22px;
+            line-height: 10px; }
+        .vipCard .vipCard_roll .list .item #toRMB {
+          position: absolute;
+          width: 30%;
+          top: 0;
+          left: 12px;
+          text-align: left; }
+          .vipCard .vipCard_roll .list .item #toRMB i {
+            float: left;
+            margin-top: 4px;
+            margin-right: 6px;
+            font-size: 22px;
+            line-height: 10px; }
+        .vipCard .vipCard_roll .list .item ul {
+          float: left;
+          width: 100%;
+          margin: 0;
+          padding: 0 10px; }
+          .vipCard .vipCard_roll .list .item ul li {
+            float: left;
+            width: 100%;
+            padding: 30px 10px;
+            border-bottom: solid 1px #ddd;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center; }
+            .vipCard .vipCard_roll .list .item ul li:last-child {
+              border: none; }
+            .vipCard .vipCard_roll .list .item ul li img {
+              width: 50%; }
+            .vipCard .vipCard_roll .list .item ul li .content {
+              width: 50%;
+              padding-left: 25px; }
+              .vipCard .vipCard_roll .list .item ul li .content h5 {
+                float: left;
+                width: 100%;
+                margin: 0;
+                font-size: 21px; }
+              .vipCard .vipCard_roll .list .item ul li .content > span {
+                display: inline-block;
+                float: left;
+                width: 100%;
+                margin-top: 2px;
+                font-size: 10px;
+                color: #666; }
+              .vipCard .vipCard_roll .list .item ul li .content .money {
+                float: left;
+                width: 100%;
+                height: 26px;
+                line-height: 26px; }
+                .vipCard .vipCard_roll .list .item ul li .content .money span:first-child {
+                  color: #fa4947;
+                  font-size: 13px; }
+                  .vipCard .vipCard_roll .list .item ul li .content .money span:first-child strong {
+                    font-size: 24px; }
+                .vipCard .vipCard_roll .list .item ul li .content .money span:last-child {
+                  color: #999;
+                  margin-left: 10px;
+                  font-size: 8px;
+                  text-decoration: line-through; }
+                  .vipCard .vipCard_roll .list .item ul li .content .money span:last-child strong {
+                    font-size: 14px;
+                    font-weight: 500; }
+              .vipCard .vipCard_roll .list .item ul li .content .point {
+                float: left;
+                width: 100%;
+                height: 26px;
+                line-height: 26px; }
+                .vipCard .vipCard_roll .list .item ul li .content .point span {
+                  font-size: 13px;
+                  color: #fa4947; }
+                  .vipCard .vipCard_roll .list .item ul li .content .point span strong {
+                    font-size: 20px;
+                    margin-right: 6px; }
+              .vipCard .vipCard_roll .list .item ul li .content a {
+                display: inline-block;
+                float: left;
+                height: 24px;
+                padding: 0 14px;
+                margin-top: 8px;
+                color: #fff;
+                font-size: 12px;
+                line-height: 24px;
+                text-align: center;
+                border-radius: 20px;
+                background-color: #46b87c; }
+
+/*会员卡*/
+/*约跑*/
+.yuepao {
+  float: left;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f2f2f2; }
+  .yuepao .content {
+    float: left;
+    width: 100%;
+    height: 172px;
+    background-color: #fff;
+    border-bottom: solid 1px #ccc; }
+    .yuepao .content textarea {
+      float: left;
+      width: 100%;
+      height: 140px !important;
+      padding: 12px;
+      color: #666;
+      border: none;
+      background: none; }
+      .yuepao .content textarea:focus {
+        outline: none; }
+    .yuepao .content p {
+      float: left;
+      width: 100%;
+      margin: 0;
+      padding: 6px 10px;
+      text-align: right;
+      font-size: 14px;
+      color: #999; }
+  .yuepao a {
+    display: inline-block;
+    width: 100px;
+    height: 34px;
+    margin-left: calc(50% - 50px);
+    margin-top: 30px;
+    color: #fff;
+    font-size: 16px;
+    line-height: 35px;
+    text-align: center;
+    border-radius: 50px;
+    background-color: #46b97c; }
+
+/*约跑*/
+/*搜索*/
+.search {
+  float: left;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #fff; }
+  .search .onload > p {
+    background: rgba(255, 255, 255, 0.6); }
+  .search .search_topSearch {
+    float: left;
+    width: 100%;
+    padding: 15px 5px; }
+    .search .search_topSearch .search_input {
+      float: left;
+      width: calc(100% - 70px);
+      height: 30px;
+      margin-left: 7px;
+      border-radius: 4px;
+      background-color: #efefef; }
+      .search .search_topSearch .search_input img {
+        float: left;
+        width: 24px;
+        margin: 3px; }
+      .search .search_topSearch .search_input input {
+        float: left;
+        width: calc(100% - 30px);
+        height: 30px;
+        line-height: 30px;
+        font-size: 14px;
+        border: none;
+        background: none; }
+        .search .search_topSearch .search_input input::-webkit-input-placeholder {
+          line-height: 30px;
+          font-size: 14px; }
+        .search .search_topSearch .search_input input:focus {
+          outline: none; }
+    .search .search_topSearch > a {
+      display: inline-block;
+      float: left;
+      width: 60px;
+      height: 30px;
+      color: #333;
+      line-height: 30px;
+      text-align: center; }
+  .search .search_list {
+    float: left;
+    width: 100%;
+    padding: 0 12px; }
+    .search .search_list .item {
+      float: left;
+      width: 100%;
+      height: 96px;
+      margin-bottom: 10px;
+      padding: 8px;
+      background-color: #fff;
+      box-shadow: 0 0 5px #ccc; }
+      .search .search_list .item > a > img {
+        float: left;
+        width: 102px;
+        height: 80px;
+        object-fit: cover;
+        border-radius: 5px; }
+      .search .search_list .item > a .content {
+        position: relative;
+        float: left;
+        width: calc(100% - 144px);
+        height: 80px;
+        margin-left: 12px; }
+        .search .search_list .item > a .content h5 {
+          float: left;
+          width: 100%;
+          height: 24px;
+          margin: 0;
+          color: #444;
+          font-size: 15px;
+          line-height: 24px;
+          word-break: break-all;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          /** 将对象作为伸缩盒子模型显示 **/
+          -webkit-box-orient: vertical;
+          /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+          -webkit-line-clamp: 1;
+          /** 显示的行数 **/
+          overflow: hidden;
+          /** 隐藏超出的内容 **/ }
+        .search .search_list .item > a .content span {
+          float: left;
+          display: inline-block;
+          font-size: 13px;
+          color: #64be8c; }
+          .search .search_list .item > a .content span img {
+            display: none; }
+        .search .search_list .item > a .content p {
+          float: left;
+          width: 100%;
+          color: #999;
+          margin: 0;
+          margin-top: 3px;
+          font-size: 12px;
+          line-height: 16px;
+          word-break: break-all;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          /** 将对象作为伸缩盒子模型显示 **/
+          -webkit-box-orient: vertical;
+          /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+          -webkit-line-clamp: 1;
+          /** 显示的行数 **/
+          overflow: hidden;
+          /** 隐藏超出的内容 **/ }
+          .search .search_list .item > a .content p:nth-of-type(2) {
+            color: #fa4646; }
+        .search .search_list .item > a .content .operation {
+          position: absolute;
+          width: 20px;
+          height: 80px;
+          top: 0;
+          right: -30px;
+          text-align: center; }
+          .search .search_list .item > a .content .operation i {
+            margin-top: 40px;
+            font-size: 24px;
+            color: #64be8c; }
+      @media (min-width: 350px) {
+        .search .search_list .item > a .content {
+          position: relative;
+          float: left;
+          width: calc(100% - 114px);
+          height: 80px;
+          margin-left: 12px; }
+          .search .search_list .item > a .content h5 {
+            float: left;
+            width: 50%;
+            height: 38px;
+            margin: 0;
+            color: #444;
+            font-size: 16px;
+            line-height: 34px;
+            word-break: break-all;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            /** 将对象作为伸缩盒子模型显示 **/
+            -webkit-box-orient: vertical;
+            /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+            -webkit-line-clamp: 1;
+            /** 显示的行数 **/
+            overflow: hidden;
+            /** 隐藏超出的内容 **/ }
+          .search .search_list .item > a .content span {
+            display: inline-block;
+            float: right;
+            width: calc(50% - 10px);
+            height: 34px;
+            margin-right: 10px;
+            text-align: right;
+            font-size: 13px;
+            line-height: 34px;
+            color: #64be8c; }
+            .search .search_list .item > a .content span img {
+              display: inline-block;
+              width: 22px;
+              margin-top: -4px; }
+          .search .search_list .item > a .content p {
+            float: left;
+            width: calc(100% - 30px);
+            color: #999;
+            margin: 0;
+            margin-top: 4px;
+            font-size: 12px;
+            line-height: 18px;
+            word-break: break-all;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            /** 将对象作为伸缩盒子模型显示 **/
+            -webkit-box-orient: vertical;
+            /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+            -webkit-line-clamp: 1;
+            /** 显示的行数 **/
+            overflow: hidden;
+            /** 隐藏超出的内容 **/ }
+          .search .search_list .item > a .content .operation {
+            position: absolute;
+            width: 20px;
+            height: 80px;
+            top: 0;
+            right: 0;
+            text-align: center; }
+            .search .search_list .item > a .content .operation i {
+              margin-top: 40px;
+              font-size: 24px;
+              color: #64be8c; } }
+
+/*搜索*/
+/*门店详情*/
+.storeM {
+  float: left;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f2f2f2; }
+  .storeM .top_news {
+    position: absolute;
+    width: 80%;
+    height: 30px;
+    top: 46px;
+    left: 10%;
+    padding: 0 8px 0 12px;
+    line-height: 30px;
+    border-radius: 22px;
+    background-color: #585060;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    z-index: 99; }
+    .storeM .top_news i {
+      margin-top: 6px;
+      font-size: 18px;
+      color: #46b87c; }
+    .storeM .top_news span {
+      color: #fff;
+      font-size: 13px;
+      font-weight: 400; }
+    .storeM .top_news img {
+      float: right;
+      width: 20px;
+      height: 20px;
+      margin: 5px 0; }
+  .storeM .swiper-container {
+    float: left;
+    width: 100%;
+    height: 210px; }
+    .storeM .swiper-container img {
+      width: 100%; }
+  .storeM .storeM_message {
+    float: left;
+    width: 100%;
+    height: 80px;
+    padding: 12px 15px;
+    background-color: #fff; }
+    .storeM .storeM_message .content {
+      position: relative;
+      float: left;
+      width: calc(100% - 30px);
+      height: 56px;
+      padding-left: 12px;
+      border-left: solid 3px #46b87c; }
+      .storeM .storeM_message .content h5 {
+        float: left;
+        width: 100%;
+        height: 25px;
+        margin: 0;
+        line-height: 25px;
+        color: #333;
+        font-size: 18px; }
+      .storeM .storeM_message .content p {
+        float: left;
+        width: 100%;
+        margin-top: 4px;
+        margin-bottom: 0;
+        line-height: 16px;
+        color: #999;
+        font-size: 12px;
+        word-break: break-all;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        /** 将对象作为伸缩盒子模型显示 **/
+        -webkit-box-orient: vertical;
+        /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+        -webkit-line-clamp: 2;
+        /** 显示的行数 **/
+        overflow: hidden;
+        /** 隐藏超出的内容 **/ }
+      .storeM .storeM_message .content a {
+        position: absolute;
+        width: 30px;
+        height: 56px;
+        right: -35px;
+        text-align: center; }
+        .storeM .storeM_message .content a img {
+          width: 22px;
+          margin-top: 28px; }
+  .storeM .storeM_vipCard {
+    float: left;
+    width: 100%;
+    margin-top: 10px;
+    background-color: #fff; }
+    .storeM .storeM_vipCard .title {
+      float: left;
+      width: 100%;
+      height: 32px;
+      padding: 0 12px;
+      line-height: 35px;
+      font-size: 15px; }
+      .storeM .storeM_vipCard .title a {
+        float: right;
+        font-size: 12px;
+        color: #999; }
+    .storeM .storeM_vipCard .cardList {
+      float: left;
+      width: 100%;
+      padding: 2px 12px 10px 12px; }
+      .storeM .storeM_vipCard .cardList ul {
+        float: left;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        overflow-y: hidden; }
+        .storeM .storeM_vipCard .cardList ul li {
+          flex-shrink: 0;
+          padding: 0 10px;
+          text-align: center; }
+          .storeM .storeM_vipCard .cardList ul li:first-child {
+            padding-left: 0; }
+          .storeM .storeM_vipCard .cardList ul li:last-child {
+            padding-right: 0; }
+          .storeM .storeM_vipCard .cardList ul li a {
+            display: inline-block;
+            float: left;
+            width: 100%;
+            height: 100%; }
+            .storeM .storeM_vipCard .cardList ul li a img {
+              width: 115px; }
+  .storeM .storeM_product {
+    float: left;
+    width: 100%;
+    margin-top: 10px;
+    background-color: #fff; }
+    .storeM .storeM_product .title {
+      float: left;
+      width: 100%;
+      height: 32px;
+      padding: 0 12px;
+      line-height: 35px;
+      font-size: 15px; }
+    .storeM .storeM_product .content {
+      float: left;
+      width: 100%;
+      padding: 5px 12px; }
+      .storeM .storeM_product .content ul {
+        float: left;
+        width: 100%;
+        margin: 0;
+        padding: 0; }
+        .storeM .storeM_product .content ul li {
+          position: relative;
+          float: left;
+          width: 100%;
+          height: 65px;
+          margin-bottom: 14px; }
+          .storeM .storeM_product .content ul li:last-child {
+            margin-bottom: 4px; }
+          .storeM .storeM_product .content ul li img {
+            float: left;
+            width: 95px;
+            height: 65px; }
+          .storeM .storeM_product .content ul li h5 {
+            float: left;
+            width: calc(100% - 150px);
+            height: 20px;
+            margin: 0 0 5px 10px;
+            font-size: 15px;
+            line-height: 20px; }
+          .storeM .storeM_product .content ul li p {
+            float: left;
+            width: calc(100% - 150px);
+            height: 30px;
+            margin: 10px 0 5px 10px;
+            line-height: 30px;
+            word-break: break-all;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            /** 将对象作为伸缩盒子模型显示 **/
+            -webkit-box-orient: vertical;
+            /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+            -webkit-line-clamp: 1;
+            /** 显示的行数 **/
+            overflow: hidden;
+            /** 隐藏超出的内容 **/ }
+          .storeM .storeM_product .content ul li a {
+            position: absolute;
+            display: inline-block;
+            right: 5px;
+            top: 20px;
+            color: #46b87c;
+            font-size: 14px;
+            text-align: right; }
+            .storeM .storeM_product .content ul li a i {
+              font-size: 18px;
+              margin-left: 10px; }
+  .storeM .storeM_peizhi {
+    float: left;
+    width: 100%;
+    margin-top: 10px;
+    background-color: #fff; }
+    .storeM .storeM_peizhi .title {
+      float: left;
+      width: 100%;
+      height: 32px;
+      padding: 0 12px;
+      line-height: 35px;
+      font-size: 15px; }
+    .storeM .storeM_peizhi .list {
+      float: left;
+      width: 100%;
+      padding: 5px 12px 12px 12px; }
+      .storeM .storeM_peizhi .list ul {
+        float: left;
+        width: 100%;
+        padding: 0 10px;
+        margin: 0;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: wrap; }
+        .storeM .storeM_peizhi .list ul li {
+          width: 25%;
+          display: flex;
+          flex-direction: row;
+          justify-content: center; }
+          .storeM .storeM_peizhi .list ul li img {
+            height: 28px;
+            object-fit: cover; }
+          .storeM .storeM_peizhi .list ul li span {
+            display: inline-block;
+            height: 30px;
+            line-height: 45px;
+            font-size: 12px;
+            color: #999;
+            text-indent: 4px; }
+
+/*门店详情*/
+/*排行榜*/
+.ranking {
+  float: left;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f2f2f2; }
+  .ranking .top_bg {
+    position: fixed;
+    width: 100%;
+    height: 180px;
+    left: 0;
+    top: 0;
+    background-color: #46b87c;
+    z-index: 10; }
+  .ranking .ranking_top {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 11; }
+    .ranking .ranking_top .ranking_select {
+      float: left;
+      width: 100%;
+      margin: 13px 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center; }
+      .ranking .ranking_top .ranking_select ul {
+        position: relative;
+        width: 200px;
+        height: 26px;
+        padding: 0;
+        margin: 0;
+        border-radius: 20px;
+        background-color: #fff;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden; }
+        .ranking .ranking_top .ranking_select ul li {
+          position: absolute;
+          float: left;
+          width: 105px;
+          height: 26px;
+          padding: 0;
+          line-height: 26px;
+          text-align: center;
+          z-index: 2; }
+          .ranking .ranking_top .ranking_select ul li.active {
+            color: #fff; }
+          .ranking .ranking_top .ranking_select ul li:first-child {
+            left: 0; }
+          .ranking .ranking_top .ranking_select ul li:nth-of-type(2) {
+            left: 95px; }
+          .ranking .ranking_top .ranking_select ul li:nth-of-type(3) {
+            top: 0;
+            left: 0;
+            border-radius: 20px;
+            background-color: #46b87c;
+            border: solid 2px #fff;
+            transition: all 0.05s;
+            z-index: 1; }
+      .ranking .ranking_top .ranking_select i {
+        position: absolute;
+        font-size: 18px;
+        top: 8px;
+        right: 12px; }
+    .ranking .ranking_top a {
+      position: absolute;
+      top: 12px;
+      right: 25px; }
+      .ranking .ranking_top a img {
+        width: 26px; }
+  .ranking .ranking_content_title {
+    position: fixed;
+    width: calc(100% - 36px);
+    height: 130px;
+    top: 56px;
+    left: 18px;
+    padding: 20px 15px;
+    border-radius: 6px 6px 0 0;
+    background-color: #fff;
+    z-index: 11; }
+    .ranking .ranking_content_title h5 {
+      display: inline-block;
+      color: #333;
+      margin-top: 40px;
+      font-size: 26px; }
+      .ranking .ranking_content_title h5:first-child {
+        float: left; }
+      .ranking .ranking_content_title h5:last-child {
+        float: right; }
+      .ranking .ranking_content_title h5 span {
+        font-size: 16px; }
+    .ranking .ranking_content_title .headImg {
+      position: absolute;
+      width: 88px;
+      height: 88px;
+      top: 28px;
+      left: calc(50% - 44px);
+      border-radius: 50%;
+      border: solid 1px #46b87c; }
+      .ranking .ranking_content_title .headImg img {
+        width: calc(100% - 6px);
+        height: calc(100% - 6px);
+        margin: 3px;
+        border-radius: 50%;
+        object-fit: cover; }
+  @media (min-width: 350px) {
+    .ranking .ranking_content_title {
+      padding: 20px 35px; } }
+  .ranking .ranking_content_list {
+    float: left;
+    width: calc(100% - 36px);
+    margin-left: 18px;
+    margin-top: 186px;
+    left: 18px;
+    top: 186px;
+    background-color: #fff; }
+    .ranking .ranking_content_list ul {
+      float: left;
+      width: 100%;
+      padding: 0;
+      margin: 0; }
+      .ranking .ranking_content_list ul li {
+        float: left;
+        width: 100%;
+        height: 80px;
+        padding: 10px 0; }
+        .ranking .ranking_content_list ul li:nth-of-type(odd) {
+          background-color: #f2f2f2; }
+        .ranking .ranking_content_list ul li .rank {
+          float: left;
+          width: 37px;
+          height: 60px;
+          font-size: 11px;
+          line-height: 60px;
+          text-align: center; }
+        .ranking .ranking_content_list ul li:first-child .rank {
+          line-height: 74px;
+          background-image: url("../image/rank1.png");
+          background-repeat: no-repeat;
+          background-size: 29px;
+          background-position-x: 4px;
+          background-position-y: 11.5px; }
+        .ranking .ranking_content_list ul li:nth-of-type(2) .rank {
+          line-height: 74px;
+          background-image: url("../image/rank2.png");
+          background-repeat: no-repeat;
+          background-size: 29px;
+          background-position-x: 4px;
+          background-position-y: 11.5px; }
+        .ranking .ranking_content_list ul li:nth-of-type(3) .rank {
+          line-height: 74px;
+          background-image: url("../image/rank3.png");
+          background-repeat: no-repeat;
+          background-size: 29px;
+          background-position-x: 4px;
+          background-position-y: 11.5px; }
+        .ranking .ranking_content_list ul li .headImg {
+          float: left;
+          width: 60px;
+          height: 60px;
+          border-radius: 50%;
+          border: solid 1px #46b87c; }
+          .ranking .ranking_content_list ul li .headImg img {
+            float: left;
+            width: 54px;
+            height: 54px;
+            margin: 2px;
+            border-radius: 50%;
+            object-fit: cover; }
+        .ranking .ranking_content_list ul li .content {
+          float: left;
+          width: calc(100% - 170px);
+          height: 60px;
+          margin-left: 8px; }
+          .ranking .ranking_content_list ul li .content h5 {
+            font-size: 15px;
+            color: #333;
+            word-break: break-all;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            /** 将对象作为伸缩盒子模型显示 **/
+            -webkit-box-orient: vertical;
+            /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+            -webkit-line-clamp: 1;
+            /** 显示的行数 **/
+            overflow: hidden;
+            /** 隐藏超出的内容 **/ }
+          .ranking .ranking_content_list ul li .content p {
+            font-size: 14px;
+            color: #666;
+            word-break: break-all;
+            text-overflow: ellipsis;
+            display: -webkit-box;
+            /** 将对象作为伸缩盒子模型显示 **/
+            -webkit-box-orient: vertical;
+            /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+            -webkit-line-clamp: 1;
+            /** 显示的行数 **/
+            overflow: hidden;
+            /** 隐藏超出的内容 **/ }
+        .ranking .ranking_content_list ul li .like {
+          float: right;
+          width: 55px;
+          height: 60px; }
+          .ranking .ranking_content_list ul li .like img {
+            width: 22px;
+            margin-top: 20px; }
+          .ranking .ranking_content_list ul li .like span {
+            display: inline-block;
+            margin-left: 2px; }
+
+/*排行榜*/
+/*个人中心*/
+.mine {
+  float: left;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f2f2f2; }
+  .mine .mine_top {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 200px;
+    background-color: #fff;
+    overflow: hidden; }
+    .mine .mine_top .title {
+      position: absolute;
+      width: 100%;
+      height: 70px;
+      top: 0;
+      left: 0;
+      padding: 10px 20px; }
+      .mine .mine_top .title .headImg {
+        float: left;
+        width: 50px;
+        height: 50px;
+        padding: 4px;
+        border-radius: 50%;
+        border: solid 1px #46b87c; }
+        .mine .mine_top .title .headImg img {
+          float: left;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          object-fit: cover; }
+      .mine .mine_top .title a {
+        float: right; }
+        .mine .mine_top .title a img {
+          width: 22px;
+          margin-right: 5px;
+          margin-top: 8px; }
+    .mine .mine_top .content {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      top: 30px;
+      left: calc(50% - 75px);
+      padding: 8px;
+      border-radius: 50%;
+      background-color: rgba(15, 200, 160, 0.3); }
+      .mine .mine_top .content > div {
+        float: left;
+        width: 100%;
+        height: 100%;
+        padding: 8px;
+        border-radius: 50%;
+        background-color: rgba(15, 200, 160, 0.4); }
+        .mine .mine_top .content > div > .text {
+          float: left;
+          width: 100%;
+          height: 100%;
+          padding: 8px;
+          border-radius: 50%;
+          background-color: rgba(15, 200, 160, 0.6);
+          background: -moz-linear-gradient(top, rgba(15, 200, 160, 0.6), #dcc832);
+          background: -webkit-gradient(linear, 0 0, 0 bottom, from(rgba(15, 200, 160, 0.6)), to(#dcc832));
+          background: -o-linear-gradient(top, rgba(15, 200, 160, 0.6), #dcc832); }
+    .mine .mine_top #svg-area {
+      position: absolute;
+      width: calc(100% + 10px);
+      height: 180px;
+      left: -5px;
+      bottom: -10px; }
+      .mine .mine_top #svg-area path {
+        fill: rgba(0, 0, 0, 0);
+        stroke: rgba(80, 200, 160, 0.8);
+        stroke-width: 0.4; }
+  .mine .mine_list {
+    float: left;
+    width: 100%;
+    margin-top: 12px; }
+    .mine .mine_list ul {
+      float: left;
+      width: 100%;
+      padding: 0;
+      margin: 0; }
+      .mine .mine_list ul li {
+        position: relative;
+        float: left;
+        width: 100%;
+        height: 50px;
+        font-size: 16px;
+        line-height: 50px;
+        background-color: #fff;
+        border-bottom: solid 1px #eee; }
+        .mine .mine_list ul li a {
+          display: inline-block;
+          float: left;
+          width: 100%;
+          height: 100%; }
+          .mine .mine_list ul li a img {
+            float: left;
+            width: 24px;
+            margin: 13px 15px; }
+          .mine .mine_list ul li a span {
+            position: absolute;
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            top: 21px;
+            right: 30px;
+            border-radius: 50%;
+            background-color: #fa4646; }
+        .mine .mine_list ul li:first-child img {
+          width: 20px;
+          margin: 13px 17px; }
+        .mine .mine_list ul li:nth-of-type(2) img {
+          width: 26px;
+          margin: 15.5px 14px; }
+        .mine .mine_list ul li:nth-of-type(3) img {
+          margin: 15px 15px; }
+        .mine .mine_list ul li:nth-of-type(4) img {
+          width: 22px;
+          margin: 13px 16px; }
+
+/*个人中心*/
+/*消息*/
+.news {
+  float: left;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f2f2f2; }
+  .news .swiper-container {
+    float: left;
+    width: 100%;
+    height: 210px; }
+  .news .news_list {
+    float: left;
+    width: 100%;
+    margin-top: 12px; }
+    .news .news_list ul {
+      float: left;
+      width: 100%;
+      padding: 0;
+      margin: 0; }
+      .news .news_list ul li {
+        position: relative;
+        float: left;
+        width: 100%;
+        height: 50px;
+        font-size: 16px;
+        line-height: 50px;
+        background-color: #fff;
+        border-bottom: solid 1px #eee; }
+        .news .news_list ul li a {
+          display: inline-block;
+          float: left;
+          width: 100%;
+          height: 100%;
+          line-height: 50px; }
+          .news .news_list ul li a img {
+            float: left;
+            width: 26px;
+            margin: 13px 16px; }
+          .news .news_list ul li a span {
+            position: absolute;
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            top: 21px;
+            right: 30px;
+            border-radius: 50%;
+            background-color: #fa4646; }
+        .news .news_list ul li:first-child img {
+          margin-top: 15px; }
+
+/*消息*/
+/*系统通知*/
+.systemNews {
+  float: left;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f2f2f2; }
+  .systemNews .news_list {
+    float: left;
+    width: 100%; }
+    .systemNews .news_list ul {
+      float: left;
+      width: 100%;
+      padding: 0 10px;
+      margin: 0; }
+      .systemNews .news_list ul li {
+        float: left;
+        width: 100%;
+        padding: 0 10px;
+        margin-top: 10px;
+        background-color: #fff;
+        box-shadow: 0 1px 4px #ccc; }
+        .systemNews .news_list ul li h5 {
+          float: left;
+          width: calc(100% - 70px);
+          margin-top: 12px;
+          margin-bottom: 5px;
+          font-size: 15px;
+          color: #666;
+          line-height: 26px;
+          word-break: break-all;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          /** 将对象作为伸缩盒子模型显示 **/
+          -webkit-box-orient: vertical;
+          /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+          -webkit-line-clamp: 1;
+          /** 显示的行数 **/
+          overflow: hidden;
+          /** 隐藏超出的内容 **/ }
+        .systemNews .news_list ul li.active h5 {
+          -webkit-line-clamp: 5;
+          /** 显示的行数 **/ }
+        .systemNews .news_list ul li span {
+          float: right;
+          display: inline-block;
+          width: 46px;
+          height: 20px;
+          color: #fff;
+          margin-top: 14px;
+          font-size: 12px;
+          line-height: 20px;
+          text-align: center;
+          border-radius: 20px;
+          background-color: #46b87c; }
+          .systemNews .news_list ul li span.yes {
+            background-color: #919191; }
+        .systemNews .news_list ul li p {
+          float: left;
+          width: 100%;
+          color: #ccc;
+          margin: 0;
+          margin-bottom: 6px;
+          font-size: 13px;
+          text-align: right; }
+
+/*系统通知*/
+/*留言列表*/
+.leaveWord {
+  float: left;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f2f2f2; }
+  .leaveWord .leaveWord_search {
+    float: left;
+    width: 100%;
+    padding: 15px 5px;
+    margin-bottom: -20px; }
+    .leaveWord .leaveWord_search .search_input {
+      float: left;
+      width: calc(100% - 70px);
+      height: 30px;
+      margin-left: 7px;
+      border-radius: 4px;
+      background-color: #fff; }
+      .leaveWord .leaveWord_search .search_input img {
+        float: left;
+        width: 24px;
+        margin: 3px; }
+      .leaveWord .leaveWord_search .search_input input {
+        float: left;
+        width: calc(100% - 30px);
+        height: 30px;
+        line-height: 30px;
+        font-size: 14px;
+        border: none;
+        background: none; }
+        .leaveWord .leaveWord_search .search_input input::-webkit-input-placeholder {
+          line-height: 30px;
+          font-size: 14px; }
+        .leaveWord .leaveWord_search .search_input input:focus {
+          outline: none; }
+    .leaveWord .leaveWord_search > a {
+      display: inline-block;
+      float: left;
+      width: 60px;
+      height: 30px;
+      color: #333;
+      line-height: 30px;
+      text-align: center; }
+  .leaveWord .leaveWord_list {
+    float: left;
+    width: 100%; }
+    .leaveWord .leaveWord_list ul {
+      float: left;
+      width: 100%;
+      padding: 10px; }
+      .leaveWord .leaveWord_list ul li {
+        position: relative;
+        float: left;
+        width: 100%;
+        padding: 12px 15px;
+        margin-top: 10px;
+        background-color: #fff;
+        box-shadow: 0 1px 4px #ccc; }
+        .leaveWord .leaveWord_list ul li p {
+          float: left;
+          width: 80%;
+          margin: 0;
+          color: #666;
+          font-size: 16px;
+          line-height: 20px;
+          word-break: break-all;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          /** 将对象作为伸缩盒子模型显示 **/
+          -webkit-box-orient: vertical;
+          /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+          -webkit-line-clamp: 1;
+          /** 显示的行数 **/
+          overflow: hidden;
+          /** 隐藏超出的内容 **/ }
+        .leaveWord .leaveWord_list ul li > span {
+          display: inline-block;
+          float: left;
+          clear: both;
+          width: 80px;
+          color: #aaa;
+          margin-top: 4px;
+          font-size: 15px;
+          text-align: left; }
+        .leaveWord .leaveWord_list ul li .new {
+          position: absolute;
+          width: 0;
+          height: 0;
+          top: 0;
+          right: 0;
+          border-top: 28px solid red;
+          border-left: 24px solid transparent; }
+          .leaveWord .leaveWord_list ul li .new span {
+            position: absolute;
+            top: -26px;
+            right: 3px;
+            color: #fff;
+            font-size: 9px; }
+        .leaveWord .leaveWord_list ul li.active p {
+          width: 92%;
+          -webkit-line-clamp: 5;
+          /** 显示的行数 **/ }
+
+/*留言列表*/
+/*我的钱包*/
+.myWallet {
+  float: left;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f2f2f2; }
+  .myWallet .myWallet_top {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 175px;
+    background-color: #46b87c;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center; }
+    .myWallet .myWallet_top span {
+      color: #fff;
+      font-size: 15px;
+      margin: 30px 0 20px 0; }
+    .myWallet .myWallet_top h5 {
+      font-size: 46px;
+      margin-top: -15px;
+      color: #fff; }
+      .myWallet .myWallet_top h5 span {
+        font-size: 26px; }
+    .myWallet .myWallet_top .chongzhi {
+      position: absolute;
+      width: 100%;
+      height: 40px;
+      top: 125px;
+      left: 0;
+      padding: 0 15px; }
+      .myWallet .myWallet_top .chongzhi a {
+        float: left;
+        width: 90px;
+        height: 32px;
+        margin: 0 calc(25% - 45px);
+        color: #46b87c;
+        line-height: 32px;
+        text-align: center;
+        border-radius: 30px;
+        background-color: #fff; }
+  @media (min-width: 350px) {
+    .myWallet .myWallet_top {
+      height: 205px; }
+      .myWallet .myWallet_top span {
+        margin: 45px 0 20px 0; }
+      .myWallet .myWallet_top .chongzhi {
+        top: 145px; } }
+  .myWallet .myWallet_title {
+    float: left;
+    width: 100%;
+    padding: 10px 15px 0 15px; }
+    .myWallet .myWallet_title h5 {
+      float: left;
+      width: 100%;
+      height: 24px;
+      color: #444;
+      font-size: 17px;
+      text-indent: 12px;
+      line-height: 24px;
+      border-left: solid 3px #46b87c; }
+  .myWallet .myWallet_list {
+    float: left;
+    width: 100%;
+    min-height: calc(100vh - 240px);
+    margin-top: 6px;
+    background-color: #fff; }
+    @media (min-width: 350px) {
+      .myWallet .myWallet_list {
+        min-height: calc(100vh - 270px); } }
+    .myWallet .myWallet_list ul {
+      float: left;
+      width: 100%;
+      padding: 0;
+      margin: 0; }
+      .myWallet .myWallet_list ul li {
+        position: relative;
+        float: left;
+        width: 100%;
+        height: 60px;
+        padding: 8px 15px 2px 15px;
+        border-bottom: solid 1px #eee; }
+        .myWallet .myWallet_list ul li:last-child {
+          border-bottom: none; }
+        .myWallet .myWallet_list ul li h5 {
+          float: left;
+          width: 70%;
+          height: 25px;
+          margin: 0;
+          color: #555;
+          line-height: 25px;
+          font-size: 15px; }
+        .myWallet .myWallet_list ul li p {
+          float: left;
+          width: 100%;
+          height: 22px;
+          margin: 0;
+          color: #999;
+          font-size: 13px;
+          line-height: 24px; }
+        .myWallet .myWallet_list ul li span {
+          position: absolute;
+          height: 62px;
+          right: 15px;
+          top: 0;
+          color: #46b87c;
+          font-size: 26px;
+          line-height: 62px; }
+
+/*我的钱包*/
+/*押金*/
+.deposit {
+  position: relative;
+  float: left;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f2f2f2;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .deposit .deposit_top {
+    position: absolute;
+    width: 100%;
+    height: 200px;
+    top: 0;
+    left: 0; }
+    .deposit .deposit_top img {
+      float: left;
+      width: 100%;
+      height: 100%; }
+  .deposit > img {
+    position: relative;
+    float: left;
+    width: 80px;
+    margin-top: 150px;
+    z-index: 99; }
+  .deposit h5 {
+    float: left;
+    height: 30px;
+    font-size: 17px;
+    line-height: 30px;
+    text-align: center; }
+  .deposit p {
+    float: left;
+    color: #999;
+    font-size: 12px;
+    line-height: 22px;
+    text-align: center; }
+  .deposit a {
+    display: inline-block;
+    float: left;
+    width: calc(100% - 40px);
+    height: 42px;
+    margin-top: 40px;
+    color: #fff;
+    font-size: 17px;
+    line-height: 42px;
+    text-align: center;
+    border-radius: 40px;
+    background-color: #46b87c; }
+
+/*押金*/
+/*绑定手机*/
+.phone_bd {
+  float: left;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f2f2f2; }
+  .phone_bd .telNum {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 52px;
+    padding: 0 12px;
+    margin-top: 20px;
+    background-color: #fff;
+    box-shadow: 0 1px 4px #ccc; }
+    .phone_bd .telNum h5 {
+      float: left;
+      width: 100px;
+      height: 52px;
+      margin: 0;
+      color: #333;
+      font-size: 16px;
+      line-height: 52px; }
+    .phone_bd .telNum input {
+      position: absolute;
+      width: calc(100% - 10px);
+      height: 22px;
+      padding: 0;
+      top: 15px;
+      right: 15px;
+      color: #666;
+      font-size: 15px;
+      line-height: 22px;
+      text-align: right;
+      border: none;
+      background: none; }
+      .phone_bd .telNum input:focus {
+        outline: none; }
+  .phone_bd .yzPass {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 52px;
+    padding: 0 12px;
+    margin-top: 12px;
+    background-color: #fff;
+    box-shadow: 0 1px 4px #ccc; }
+    .phone_bd .yzPass h5 {
+      float: left;
+      width: 100px;
+      height: 52px;
+      margin: 0;
+      color: #333;
+      font-size: 16px;
+      line-height: 52px; }
+    .phone_bd .yzPass input {
+      position: absolute;
+      width: 100%;
+      height: 22px;
+      top: 15px;
+      left: 0;
+      padding: 0;
+      color: #666;
+      font-size: 15px;
+      text-indent: 90px;
+      line-height: 22px;
+      border: none;
+      background: none; }
+      .phone_bd .yzPass input:focus {
+        outline: none; }
+    .phone_bd .yzPass button {
+      position: relative;
+      float: right;
+      width: 100px;
+      height: 28px;
+      margin: 12px 10px;
+      color: #fff;
+      font-size: 14px;
+      line-height: 28px;
+      text-align: center;
+      border: none;
+      border-radius: 20px;
+      background-color: #46b87c;
+      z-index: 999; }
+  .phone_bd a {
+    display: inline-block;
+    float: left;
+    width: calc(100% - 50px);
+    height: 42px;
+    margin-left: 25px;
+    margin-top: 45px;
+    font-size: 16px;
+    line-height: 42px;
+    text-align: center;
+    color: #46b87c;
+    border-radius: 30px;
+    border: solid 1px #46b87c; }
+
+/*绑定手机*/
+/*报修卡*/
+.repair {
+  float: left;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f2f2f2; }
+  .repair .title {
+    float: left;
+    width: 100%;
+    height: 54px;
+    padding: 0 12px;
+    line-height: 54px;
+    font-size: 15px; }
+  .repair .content {
+    float: left;
+    width: 100%;
+    height: 172px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px #ccc; }
+    .repair .content textarea {
+      float: left;
+      width: 100%;
+      height: 140px !important;
+      padding: 12px;
+      color: #666;
+      border: none;
+      background: none; }
+      .repair .content textarea:focus {
+        outline: none; }
+      .repair .content textarea::-webkit-input-placeholder {
+        color: #999; }
+    .repair .content p {
+      float: left;
+      width: 100%;
+      margin: 0;
+      padding: 6px 10px;
+      text-align: right;
+      font-size: 14px;
+      color: #999; }
+  .repair .photo_list {
+    float: left;
+    width: 100%;
+    margin-top: 15px;
+    padding: 0 20px; }
+    .repair .photo_list > img {
+      float: left;
+      width: 70px;
+      height: 70px;
+      margin-right: 15px;
+      object-fit: cover; }
+    .repair .photo_list .addImg {
+      float: left;
+      width: 70px;
+      height: 70px;
+      border-radius: 6px;
+      border: dashed 1px #999; }
+      .repair .photo_list .addImg img {
+        width: 50px;
+        margin: 14px 10px; }
+  .repair a {
+    display: inline-block;
+    width: calc(100% - 56px);
+    height: 44px;
+    margin-left: 28px;
+    margin-top: 60px;
+    color: #fff;
+    font-size: 17px;
+    letter-spacing: 5px;
+    line-height: 44px;
+    text-align: center;
+    border-radius: 50px;
+    background-color: #46b97c; }
+
+/*报修卡*/
+/*客服*/
+.customService {
+  float: left;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f2f2f2; }
+  .customService .question {
+    float: left;
+    width: 100%;
+    padding: 0 18px 10px 18px;
+    background-color: #fff;
+    box-shadow: 0 1px 2px #ccc; }
+    .customService .question .title {
+      float: left;
+      width: 100%;
+      height: 44px;
+      line-height: 44px;
+      font-size: 16px; }
+    .customService .question .content {
+      float: left;
+      width: 100%;
+      margin-top: 5px; }
+      .customService .question .content a {
+        display: inline-block;
+        float: left;
+        height: 30px;
+        padding: 0 22px;
+        margin-right: 26px;
+        margin-bottom: 16px;
+        color: #888;
+        font-size: 14px;
+        text-align: center;
+        line-height: 30px;
+        border-radius: 20px;
+        background-color: #f2f2f2; }
+        .customService .question .content a:last-child {
+          margin-right: 0; }
+  .customService > a {
+    display: inline-block;
+    float: left;
+    width: calc(100% - 130px);
+    height: 44px;
+    margin-left: 65px;
+    margin-top: 150px;
+    color: #fff;
+    font-size: 16px;
+    text-align: center;
+    line-height: 44px;
+    letter-spacing: 2px;
+    border-radius: 30px;
+    background-color: #46b87c; }
+    .customService > a img {
+      width: 30px;
+      margin-top: -4px;
+      margin-right: 6px; }
+
+/*客服*/
+/*充值*/
+.recharge {
+  float: left;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f2f2f2; }
+  .recharge .title {
+    float: left;
+    width: 100%;
+    margin-top: 60px;
+    padding: 0 18px;
+    font-size: 17px; }
+  .recharge .money_select {
+    float: left;
+    width: 100%;
+    margin-top: 35px;
+    padding: 0 25px; }
+    .recharge .money_select ul {
+      float: left;
+      width: 100%;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: flex-start; }
+      .recharge .money_select ul li {
+        width: 60px;
+        height: 34px;
+        border-radius: 6px;
+        background-color: #d2d2d2; }
+        .recharge .money_select ul li a {
+          display: inline-block;
+          float: left;
+          width: 100%;
+          height: 100%;
+          color: #333;
+          line-height: 34px;
+          text-align: center; }
+        .recharge .money_select ul li.active {
+          background-color: #fa4848; }
+          .recharge .money_select ul li.active a {
+            color: #fff; }
+  .recharge .money_input {
+    float: left;
+    width: 100%;
+    margin-top: 70px;
+    text-align: center; }
+    .recharge .money_input span {
+      font-size: 26px; }
+    .recharge .money_input input {
+      width: 85px;
+      border: none;
+      color: #666;
+      padding: 0;
+      font-size: 15px;
+      text-align: center;
+      border-radius: 0;
+      border-bottom: solid 1.5px #ccc;
+      background: none; }
+      .recharge .money_input input::-webkit-input-placeholder {
+        color: #ccc;
+        font-size: 14px; }
+      .recharge .money_input input:focus {
+        outline: none; }
+  .recharge > a {
+    float: left;
+    width: calc(100% - 80px);
+    height: 42px;
+    color: #fff;
+    margin-left: 40px;
+    margin-top: 100px;
+    font-size: 16px;
+    line-height: 42px;
+    text-align: center;
+    border-radius: 40px;
+    background-color: #46b87c; }
+  .recharge > p {
+    float: left;
+    width: 100%;
+    color: #999;
+    margin-top: 15px;
+    font-size: 12px;
+    text-align: center; }
+    .recharge > p a {
+      color: rgba(250, 72, 72, 0.8); }
+
+/*充值*/
+/*我的会员卡*/
+.myVipCard {
+  float: left;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f2f2f2; }
+  .myVipCard ul {
+    float: left;
+    width: 100%;
+    padding: 8px 12px;
+    margin: 0; }
+    .myVipCard ul li {
+      position: relative;
+      float: left;
+      width: 100%;
+      height: 90px;
+      padding: 8px;
+      margin-top: 10px;
+      background-color: #fff;
+      box-shadow: 0 1px 3px #ccc; }
+      .myVipCard ul li > img {
+        float: left;
+        width: 105px;
+        height: 74px; }
+      .myVipCard ul li .content {
+        float: left;
+        width: calc(100% - 120px);
+        margin-left: 10px; }
+        .myVipCard ul li .content h5 {
+          float: left;
+          width: 100%;
+          margin-top: 4px;
+          font-size: 17px;
+          word-break: break-all;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          /** 将对象作为伸缩盒子模型显示 **/
+          -webkit-box-orient: vertical;
+          /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+          -webkit-line-clamp: 1;
+          /** 显示的行数 **/
+          overflow: hidden;
+          /** 隐藏超出的内容 **/ }
+        .myVipCard ul li .content p {
+          float: left;
+          margin-top: 5px;
+          font-size: 12px;
+          color: #aaa; }
+      .myVipCard ul li .youxiao .you {
+        position: absolute;
+        width: 0;
+        height: 0;
+        right: 0;
+        top: 0;
+        border-top: solid 55px #fa4848;
+        border-left: solid 55px transparent; }
+        .myVipCard ul li .youxiao .you span {
+          display: inline-block;
+          position: absolute;
+          width: 30px;
+          top: -50px;
+          right: 3px;
+          color: #fff;
+          font-size: 14px; }
+      .myVipCard ul li .youxiao img {
+        position: absolute;
+        width: 60px;
+        top: -4px;
+        right: -4px; }
+  .myVipCard > a {
+    float: left;
+    width: calc(100% - 40px);
+    height: 42px;
+    margin-left: 20px;
+    margin-top: 40px;
+    line-height: 42px;
+    color: #fff;
+    text-align: center;
+    border-radius: 40px;
+    background-color: #46b87c; }
+
+/*我的会员卡*/
+/*优惠券*/
+.coupon {
+  float: left;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f2f2f2; }
+  .coupon .guize {
+    float: left;
+    width: 100%;
+    padding: 10px 15px;
+    text-align: right;
+    font-size: 14px;
+    color: #666; }
+  .coupon .title {
+    float: left;
+    width: 100%;
+    height: 35px;
+    padding: 0 25px;
+    color: #666;
+    font-size: 15px;
+    line-height: 30px; }
+  .coupon .content {
+    float: left;
+    width: 100%;
+    padding: 0 20px; }
+    .coupon .content ul {
+      float: left;
+      width: 100%;
+      padding: 0;
+      margin: 0; }
+      .coupon .content ul li {
+        position: relative;
+        float: left;
+        width: 100%;
+        height: 100px;
+        margin-bottom: 12px;
+        padding: 8px 15px;
+        color: #46b87c;
+        border-radius: 4px;
+        box-shadow: 0 2px 6px #ccc;
+        overflow: hidden;
+        background: #fff;
+        background-image: -webkit-gradient(linear, 0 50%, 100% 100%, from(transparent), color-stop(0.5, transparent), color-stop(0.5, #46b87c), to(#46b87c)), -webkit-gradient(linear, 0 50%, 100% 0, from(transparent), color-stop(0.5, transparent), color-stop(0.5, #46b87c), to(#46b87c));
+        background-size: 10px 20px;
+        background-repeat: repeat-y;
+        background-position: 70% 0; }
+        .coupon .content ul li h5 {
+          position: relative;
+          float: left;
+          width: 100%;
+          height: 20px;
+          margin-top: 2px;
+          margin-bottom: 0;
+          line-height: 20px;
+          font-size: 17px; }
+          .coupon .content ul li h5 span {
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            top: 20px;
+            line-height: 16px;
+            font-size: 12px; }
+        .coupon .content ul li p {
+          position: absolute;
+          width: calc(30% - 3px);
+          height: 100%;
+          line-height: 100px;
+          top: 0;
+          right: 0;
+          margin: 0;
+          color: #fff;
+          font-size: 14px;
+          text-align: center;
+          background-color: #46b87c; }
+          .coupon .content ul li p span {
+            font-size: 34px; }
+        .coupon .content ul li > span {
+          position: absolute;
+          left: 15px;
+          bottom: 6px;
+          font-size: 12px; }
+  .coupon > a {
+    display: inline-block;
+    float: left;
+    width: calc(100% - 40px);
+    height: 44px;
+    margin-left: 20px;
+    margin-top: 10px;
+    color: #fff;
+    line-height: 44px;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 8px;
+    background-color: #46b87c; }
+
+/*优惠券*/
+/*积分历史记录*/
+.jfHistory {
+  float: left;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #fff; }
+  .jfHistory .onload > p {
+    background: rgba(255, 255, 255, 0.6); }
+  .jfHistory .jf_top {
+    position: fixed;
+    float: left;
+    width: 100%;
+    height: 200px;
+    top: 0;
+    left: 0;
+    border-bottom: solid 2px #46b87c;
+    z-index: 999; }
+    .jfHistory .jf_top > img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      object-fit: cover;
+      z-index: 1; }
+    .jfHistory .jf_top .bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      background-color: rgba(0, 0, 0, 0.3);
+      z-index: 2; }
+    .jfHistory .jf_top .content {
+      position: absolute;
+      width: 130px;
+      height: 130px;
+      top: 25px;
+      left: calc(50% - 65px);
+      border-radius: 50%;
+      background-color: #51976c;
+      box-shadow: 0 0 10px #51976c;
+      z-index: 3; }
+      .jfHistory .jf_top .content > div {
+        float: left;
+        width: 120px;
+        height: 120px;
+        margin: 5px;
+        border-radius: 50%;
+        background-color: #46b87c;
+        box-shadow: 0 0 2px #46b87c; }
+        .jfHistory .jf_top .content > div h5 {
+          float: left;
+          width: 100%;
+          margin-top: 35px;
+          margin-bottom: 0;
+          font-size: 38px;
+          color: #fff;
+          text-align: center; }
+        .jfHistory .jf_top .content > div span {
+          display: inline-block;
+          float: left;
+          width: 60px;
+          height: 24px;
+          margin-top: 6px;
+          margin-left: 30px;
+          line-height: 24px;
+          font-size: 11px;
+          text-align: center;
+          border-radius: 20px;
+          color: #46b87c;
+          background-color: #fff; }
+    .jfHistory .jf_top .qiandao {
+      position: absolute;
+      width: 100px;
+      height: 40px;
+      top: 179px;
+      left: calc(50% - 50px);
+      border: solid 2px #46b87c;
+      border-radius: 40px;
+      background-color: #fff;
+      z-index: 4; }
+      .jfHistory .jf_top .qiandao a {
+        display: inline-block;
+        float: left;
+        width: 100%;
+        height: 100%;
+        color: #666;
+        font-size: 15px;
+        line-height: 36px;
+        text-align: center; }
+  .jfHistory .jfHistory_title {
+    position: fixed;
+    width: 100%;
+    top: 200px;
+    left: 0;
+    padding: 10px 15px 0 15px;
+    background-color: #fff;
+    z-index: 3; }
+    .jfHistory .jfHistory_title h5 {
+      float: left;
+      width: 100%;
+      height: 24px;
+      color: #333;
+      font-size: 17px;
+      text-indent: 12px;
+      line-height: 24px;
+      border-left: solid 3px #46b87c; }
+  .jfHistory .jfHistory_content {
+    float: left;
+    width: calc(100% - 30px);
+    padding: 12px;
+    margin-top: 255px;
+    margin-left: 15px;
+    border-radius: 6px;
+    background-color: #f2f2f2; }
+    .jfHistory .jfHistory_content ul {
+      float: left;
+      width: 100%;
+      padding: 0;
+      margin: 0; }
+      .jfHistory .jfHistory_content ul li {
+        position: relative;
+        float: left;
+        width: 100%;
+        height: 65px;
+        padding: 6px 8px;
+        border-bottom: solid 1px #ddd; }
+        .jfHistory .jfHistory_content ul li h5 {
+          float: left;
+          width: 100%;
+          height: 30px;
+          margin: 0;
+          line-height: 30px;
+          font-size: 15px;
+          color: #666; }
+        .jfHistory .jfHistory_content ul li p {
+          float: left;
+          width: 100%;
+          margin: 0;
+          color: #666;
+          font-size: 12px; }
+        .jfHistory .jfHistory_content ul li span {
+          position: absolute;
+          display: inline-block;
+          height: 65px;
+          top: 0;
+          right: 15px;
+          font-size: 30px;
+          color: #46b87c;
+          line-height: 65px; }
+
+/*积分历史记录*/
+/*积分兑换*/
+.jfDuihuan {
+  float: left;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f2f2f2; }
+  .jfDuihuan .jf_top {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 200px;
+    border-bottom: solid 2px #46b87c; }
+    .jfDuihuan .jf_top > img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      object-fit: cover;
+      z-index: 1; }
+    .jfDuihuan .jf_top .bg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      background-color: rgba(0, 0, 0, 0.45);
+      z-index: 2; }
+    .jfDuihuan .jf_top .content {
+      position: absolute;
+      width: 130px;
+      height: 130px;
+      top: 25px;
+      left: calc(50% - 65px);
+      border-radius: 50%;
+      background-color: #51976c;
+      box-shadow: 0 0 10px #51976c;
+      z-index: 3; }
+      .jfDuihuan .jf_top .content > div {
+        float: left;
+        width: 120px;
+        height: 120px;
+        margin: 5px;
+        border-radius: 50%;
+        background-color: #46b87c;
+        box-shadow: 0 0 2px #46b87c; }
+        .jfDuihuan .jf_top .content > div h5 {
+          float: left;
+          width: 100%;
+          margin-top: 35px;
+          margin-bottom: 0;
+          font-size: 38px;
+          color: #fff;
+          text-align: center; }
+        .jfDuihuan .jf_top .content > div span {
+          display: inline-block;
+          float: left;
+          width: 60px;
+          height: 24px;
+          margin-top: 6px;
+          margin-left: 30px;
+          line-height: 24px;
+          font-size: 11px;
+          text-align: center;
+          border-radius: 20px;
+          color: #46b87c;
+          background-color: #fff; }
+    .jfDuihuan .jf_top .qiandao {
+      position: absolute;
+      width: 100px;
+      height: 40px;
+      top: 179px;
+      left: calc(50% - 50px);
+      border: solid 2px #46b87c;
+      border-radius: 40px;
+      background-color: #fff;
+      z-index: 4; }
+      .jfDuihuan .jf_top .qiandao a {
+        display: inline-block;
+        float: left;
+        width: 100%;
+        height: 100%;
+        color: #666;
+        font-size: 15px;
+        line-height: 36px;
+        text-align: center; }
+    .jfDuihuan .jf_top .mingxi {
+      position: absolute;
+      top: 20px;
+      right: 18px;
+      color: #fff;
+      font-size: 13px;
+      z-index: 3; }
+  .jfDuihuan .jfHistory_title {
+    float: left;
+    width: 100%;
+    padding: 30px 15px 0 15px; }
+    .jfDuihuan .jfHistory_title h5 {
+      float: left;
+      width: 100%;
+      height: 24px;
+      color: #333;
+      font-size: 17px;
+      text-indent: 12px;
+      line-height: 24px;
+      border-left: solid 3px #46b87c; }
+  .jfDuihuan .jfHistory_content {
+    float: left;
+    width: calc(100% - 30px);
+    margin-left: 15px;
+    margin-bottom: 40px;
+    border-radius: 6px;
+    background-color: #fff; }
+    .jfDuihuan .jfHistory_content ul {
+      float: left;
+      width: 100%;
+      padding: 10px;
+      margin: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-content: space-between;
+      flex-wrap: wrap; }
+      .jfDuihuan .jfHistory_content ul li {
+        float: left;
+        width: 50%;
+        padding: 14px 10px 8px 10px;
+        border: solid 1px #fff; }
+        @media (min-width: 350px) {
+          .jfDuihuan .jfHistory_content ul li {
+            padding: 14px 15px 10px 15px !important; } }
+        .jfDuihuan .jfHistory_content ul li:first-child {
+          padding-left: 0;
+          border-right: solid 1px #ddd;
+          border-bottom: solid 1px #ddd; }
+        .jfDuihuan .jfHistory_content ul li:nth-of-type(2) {
+          padding-right: 0;
+          border-bottom: solid 1px #ddd; }
+        .jfDuihuan .jfHistory_content ul li:nth-of-type(3) {
+          padding-left: 0;
+          border-right: solid 1px #ddd; }
+        .jfDuihuan .jfHistory_content ul li:nth-of-type(4) {
+          padding-right: 0; }
+        .jfDuihuan .jfHistory_content ul li img {
+          float: left;
+          width: 100%; }
+        .jfDuihuan .jfHistory_content ul li p {
+          float: left;
+          width: 100%;
+          margin-top: 10px;
+          margin-bottom: 0;
+          font-size: 10px; }
+          .jfDuihuan .jfHistory_content ul li p a {
+            float: right;
+            padding: 0 4px;
+            margin-top: -1px;
+            font-size: 9px;
+            border-radius: 4px;
+            border: solid 1px #46b87c; }
+
+/*积分兑换*/
+/*设置*/
+.setUp {
+  float: left;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #fff; }
+  .setUp .onload > p {
+    background: rgba(255, 255, 255, 0.6); }
+  .setUp ul {
+    float: left;
+    width: 100%;
+    padding: 5px 15px; }
+    .setUp ul li {
+      float: left;
+      width: 100%;
+      height: 66px;
+      padding-right: 4px;
+      border-bottom: solid 1px #eee; }
+      .setUp ul li h5 {
+        float: left;
+        width: 50%;
+        height: 66px;
+        margin: 0;
+        font-size: 15px;
+        line-height: 66px; }
+      .setUp ul li .img {
+        float: right;
+        width: 54px;
+        height: 54px;
+        margin: 6px 1px;
+        padding: 4px;
+        border-radius: 50%;
+        border: solid 1px #46b87c;
+        overflow: hidden; }
+        .setUp ul li .img img {
+          float: left;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%; }
+      .setUp ul li p {
+        float: right;
+        width: 45%;
+        height: 66px;
+        margin: 0;
+        color: #999;
+        font-size: 14px;
+        line-height: 66px;
+        text-align: right; }
+        .setUp ul li p button {
+          float: left;
+          width: 100%;
+          height: 100%;
+          padding: 0;
+          margin: 0;
+          text-align: right;
+          border: none !important;
+          background: none !important; }
+      .setUp ul li a {
+        display: inline-block;
+        float: right;
+        height: 66px;
+        margin: 0;
+        color: #fa4646;
+        font-size: 14px;
+        line-height: 66px;
+        text-align: right; }
+      .setUp ul li .select {
+        position: relative;
+        float: right;
+        width: 36px;
+        height: 18px;
+        margin: 24px 4px;
+        border-radius: 40px;
+        background-color: #e9e9e9; }
+        .setUp ul li .select .roll {
+          position: absolute;
+          width: 24px;
+          height: 24px;
+          top: -3px;
+          left: -6px;
+          border-radius: 50%;
+          background-color: #46b87c;
+          transition: all 0.5s; }
+        .setUp ul li .select.active {
+          background-color: #dcffdc; }
+          .setUp ul li .select.active .roll {
+            left: 18px; }
+  .setUp .btn_ture {
+    background-color: #46b87c;
+    border-color: #46b87c; }
+
+/*设置*/
+/*个人中心*/
+.myMessage {
+  float: left;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f2f2f2; }
+  .myMessage .top {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 240px;
+    overflow: hidden; }
+    .myMessage .top .bgImg {
+      position: absolute;
+      width: 100%;
+      height: 220px;
+      top: -10px;
+      left: 0;
+      overflow: hidden;
+      z-index: 1; }
+      .myMessage .top .bgImg img {
+        float: left;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        -webkit-filter: blur(2px);
+        /* Chrome, Opera */
+        -moz-filter: blur(2px);
+        -ms-filter: blur(2px);
+        filter: blur(3px);
+        overflow: hidden; }
+      .myMessage .top .bgImg .bg {
+        position: absolute;
+        float: left;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.3);
+        z-index: 3; }
+    .myMessage .top .bgColor {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      z-index: 2; }
+      .myMessage .top .bgColor .bgDiv {
+        position: absolute;
+        width: 700px;
+        height: 700px;
+        left: calc(50% - 350px);
+        top: 80px;
+        border-radius: 500px;
+        background-color: #f2f2f2; }
+    .myMessage .top .content {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      z-index: 3; }
+      .myMessage .top .content .set {
+        position: absolute;
+        top: 15px;
+        right: 15px; }
+        .myMessage .top .content .set img {
+          width: 26px; }
+      .myMessage .top .content .headImg {
+        width: 130px;
+        height: 130px;
+        margin-top: 20px;
+        padding: 3px;
+        border-radius: 50%;
+        background-color: #46b87c;
+        box-shadow: 0 2px 2px #999; }
+        .myMessage .top .content .headImg img {
+          float: left;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          border: solid 2px #f6f6f6;
+          image-rendering: auto; }
+      .myMessage .top .content h5 {
+        font-size: 18px;
+        color: #444;
+        margin-bottom: 0; }
+      .myMessage .top .content .guanzhu a {
+        display: inline-block;
+        padding: 8px 10px;
+        color: #777;
+        font-size: 11px; }
+      .myMessage .top .content .money p {
+        display: inline-block;
+        margin: 0;
+        height: 28px;
+        font-size: 14px;
+        padding: 0 18px;
+        line-height: 22px; }
+        .myMessage .top .content .money p img {
+          width: 14px;
+          margin-top: -3px;
+          margin-right: 6px; }
+      .myMessage .top .content .money .guan {
+        display: inline-block;
+        width: 82px;
+        height: 26px;
+        margin: 0 20px;
+        color: #fff;
+        font-size: 13px;
+        line-height: 26px;
+        text-align: center;
+        border-radius: 20px;
+        background-color: #46b87c; }
+        .myMessage .top .content .money .guan i {
+          margin-right: 5px; }
+  .myMessage .myMessage_content {
+    position: relative;
+    float: left;
+    width: 100%;
+    padding: 0 8px;
+    background-color: #f2f2f2;
+    z-index: 99; }
+    .myMessage .myMessage_content > .message {
+      float: left;
+      width: 100%;
+      padding: 12px 0;
+      border-top: solid 1px #e6e6e6; }
+      .myMessage .myMessage_content > .message .title {
+        display: inline-block;
+        float: left;
+        width: 100%;
+        height: 35px;
+        font-size: 16px;
+        line-height: 25px;
+        text-indent: 5px; }
+        .myMessage .myMessage_content > .message .title i {
+          display: inline-block;
+          float: right;
+          width: 26px;
+          height: 35px;
+          color: #999;
+          font-size: 26px;
+          line-height: 25px;
+          text-indent: 0;
+          text-align: center; }
+      .myMessage .myMessage_content > .message .echart {
+        float: left;
+        width: 100%;
+        height: 190px;
+        border-radius: 8px;
+        background-color: #fff;
+        overflow: hidden; }
+        @media (min-width: 375px) {
+          .myMessage .myMessage_content > .message .echart {
+            height: 210px; } }
+        .myMessage .myMessage_content > .message .echart #main {
+          float: left;
+          width: calc(105% - 10px);
+          height: calc(90% + 85px);
+          margin-top: -40px;
+          margin-left: 5px; }
+  .myMessage .jindu {
+    float: left;
+    width: calc(100% - 20px);
+    height: 40px;
+    margin: 0 10px; }
+    .myMessage .jindu .level {
+      float: left;
+      width: 65px;
+      height: 40px;
+      font-size: 23px;
+      line-height: 40px;
+      color: #46b87c; }
+      .myMessage .jindu .level span {
+        font-size: 19px; }
+    .myMessage .jindu .content {
+      float: left;
+      width: calc(100% - 65px);
+      height: 40px; }
+      .myMessage .jindu .content .jindu_top {
+        float: left;
+        width: 100%;
+        height: 20px;
+        margin-top: 8px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between; }
+        .myMessage .jindu .content .jindu_top span {
+          color: #666;
+          font-size: 11px; }
+          .myMessage .jindu .content .jindu_top span i {
+            margin-left: 5px; }
+        .myMessage .jindu .content .jindu_top a {
+          color: #666;
+          font-size: 11px; }
+          .myMessage .jindu .content .jindu_top a i {
+            margin-left: 5px; }
+      .myMessage .jindu .content .roll {
+        float: left;
+        width: 100%;
+        height: 5px;
+        border-radius: 5px;
+        background-color: #aaa;
+        overflow: hidden; }
+        .myMessage .jindu .content .roll div {
+          float: left;
+          width: 40%;
+          height: 5px;
+          background-color: #46b87c; }
+  .myMessage .xunzhang {
+    float: left;
+    width: 100%;
+    height: 44px; }
+    .myMessage .xunzhang p {
+      float: left;
+      width: 60px;
+      height: 50px;
+      margin: 0;
+      text-indent: 5px;
+      font-size: 16px;
+      line-height: 50px; }
+    .myMessage .xunzhang .imgList {
+      float: left;
+      width: calc(100% - 90px);
+      height: 50px;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      align-items: center;
+      overflow-y: hidden;
+      overflow-x: auto; }
+      .myMessage .xunzhang .imgList .imgListItem {
+        position: relative;
+        width: 56px;
+        height: 44px;
+        margin-right: 10px; }
+        .myMessage .xunzhang .imgList .imgListItem img {
+          float: left;
+          width: 100%;
+          height: 100%; }
+        .myMessage .xunzhang .imgList .imgListItem span {
+          position: absolute;
+          display: inline-block;
+          width: 100%;
+          color: #f0f0dc;
+          left: 0;
+          top: 21px;
+          font-size: 11px;
+          text-align: center; }
+        .myMessage .xunzhang .imgList .imgListItem.shang span {
+          top: 5px;
+          font-size: 12px; }
+    .myMessage .xunzhang i {
+      float: right;
+      width: 26px;
+      height: 44px;
+      color: #999;
+      font-size: 26px;
+      text-align: center;
+      line-height: 40px; }
+  .myMessage .nine {
+    float: left;
+    width: calc(100% - 4px);
+    margin: 10px 2px;
+    padding: 12px 8px;
+    border-radius: 8px;
+    background-color: #fff; }
+    .myMessage .nine ul {
+      float: left;
+      width: 100%;
+      margin: 0;
+      padding: 0; }
+      .myMessage .nine ul li {
+        position: relative;
+        float: left;
+        width: 33.3%;
+        height: 100px;
+        text-align: center;
+        border-right: solid 1px #ddd;
+        border-bottom: solid 1px #ddd; }
+        .myMessage .nine ul li a {
+          display: inline-block;
+          width: 100%;
+          height: 100%; }
+          .myMessage .nine ul li a img {
+            height: 24px;
+            margin-top: 22px; }
+          .myMessage .nine ul li a span {
+            position: absolute;
+            display: inline-block;
+            width: 100%;
+            left: 0;
+            bottom: 20px;
+            color: #555;
+            font-size: 15px;
+            text-align: center; }
+        .myMessage .nine ul li:nth-of-type(2) img {
+          width: 30px;
+          height: 22px;
+          margin-top: 24px; }
+        .myMessage .nine ul li:nth-of-type(3) {
+          border-right: none; }
+        .myMessage .nine ul li:nth-of-type(6) {
+          border-right: none; }
+        .myMessage .nine ul li:nth-of-type(7) {
+          border-bottom: none; }
+        .myMessage .nine ul li:nth-of-type(8) {
+          border-bottom: none; }
+        .myMessage .nine ul li:nth-of-type(9) {
+          border-bottom: none;
+          border-right: none; }
+  @media (min-width: 380px) {
+    .myMessage .nine {
+      padding: 15px 20px; } }
+
+/*个人中心*/
+/*关注列表*/
+.guanzhuList {
+  float: left;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #fff; }
+  .guanzhuList .onload > p {
+    background: rgba(255, 255, 255, 0.6); }
+  .guanzhuList ul {
+    float: left;
+    width: 100%;
+    padding: 12px;
+    margin: 0; }
+    .guanzhuList ul li {
+      position: relative;
+      float: left;
+      width: 100%;
+      margin: 0;
+      padding: 0 2px;
+      border-bottom: solid 1px #eee; }
+      .guanzhuList ul li:last-child {
+        border: none; }
+      .guanzhuList ul li a {
+        display: inline-block;
+        float: left;
+        width: 100%;
+        height: 100%; }
+        .guanzhuList ul li a img {
+          float: left;
+          width: 38px;
+          height: 38px;
+          margin: 6px 0;
+          border-radius: 50%; }
+        .guanzhuList ul li a p {
+          float: left;
+          width: calc(100% - 150px);
+          height: 50px;
+          margin: 0 15px;
+          font-size: 16px;
+          line-height: 50px;
+          word-break: break-all;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          /** 将对象作为伸缩盒子模型显示 **/
+          -webkit-box-orient: vertical;
+          /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+          -webkit-line-clamp: 1;
+          /** 显示的行数 **/
+          overflow: hidden;
+          /** 隐藏超出的内容 **/ }
+          .guanzhuList ul li a p span {
+            margin-left: 1.5px;
+            padding: 2px 4px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #46b87c; }
+            .guanzhuList ul li a p span strong {
+              font-size: 11px; }
+      .guanzhuList ul li > span {
+        display: inline-block;
+        position: absolute;
+        width: 60px;
+        height: 24px;
+        top: 13px;
+        right: 5px;
+        color: #fff;
+        font-size: 11px;
+        line-height: 24px;
+        text-align: center;
+        border-radius: 30px;
+        background-color: #46b87c; }
+
+/*关注列表*/
+/*设备说明书*/
+.shiyongsm {
+  float: left;
+  width: 100%;
+  min-height: 100%;
+  background-color: #fff; }
+  .shiyongsm .onload > p {
+    background: rgba(255, 255, 255, 0.6); }
+  .shiyongsm > h5 {
+    float: left;
+    width: 100%;
+    height: 40px;
+    line-height: 45px;
+    text-indent: 20px;
+    font-size: 20px; }
+  .shiyongsm .content img {
+    float: left;
+    width: calc(100% - 24px);
+    margin: 12px; }
+  .shiyongsm .content p {
+    float: left;
+    width: 100%;
+    padding: 0 12px;
+    color: #666;
+    font-size: 15px;
+    text-indent: 24px;
+    letter-spacing: 1px; }
+
+/*设备说明书*/
+/*门店地图列表*/
+.storeMap {
+  float: left;
+  width: 100%;
+  height: 100vh; }
+  .storeMap #container {
+    float: left;
+    width: 100%;
+    height: 100%; }
+  .storeMap .InfoWindow {
+    display: none;
+    position: fixed;
+    width: calc(100% - 30px);
+    height: 145px;
+    left: 15px;
+    bottom: 30px;
+    border-radius: 6px;
+    background-color: #fff;
+    z-index: 999; }
+    .storeMap .InfoWindow .headImg {
+      float: left;
+      width: 130px;
+      height: 70px;
+      margin: 15px 10px 10px 10px;
+      border-radius: 6px; }
+    .storeMap .InfoWindow .content {
+      position: relative;
+      float: left;
+      width: calc(100% - 150px);
+      height: 95px; }
+      .storeMap .InfoWindow .content h5 {
+        float: left;
+        width: 85%;
+        margin-top: 18px;
+        margin-bottom: 10px;
+        font-size: 17px;
+        word-break: break-all;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        /** 将对象作为伸缩盒子模型显示 **/
+        -webkit-box-orient: vertical;
+        /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+        -webkit-line-clamp: 1;
+        /** 显示的行数 **/
+        overflow: hidden;
+        /** 隐藏超出的内容 **/ }
+      .storeMap .InfoWindow .content p {
+        float: left;
+        width: 70%;
+        font-size: 12px;
+        color: #aaa;
+        word-break: break-all;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        /** 将对象作为伸缩盒子模型显示 **/
+        -webkit-box-orient: vertical;
+        /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+        -webkit-line-clamp: 2;
+        /** 显示的行数 **/
+        overflow: hidden;
+        /** 隐藏超出的内容 **/ }
+      .storeMap .InfoWindow .content a {
+        position: absolute;
+        display: inline-block;
+        height: 95px;
+        right: 5px;
+        color: #46b87c;
+        font-size: 14px;
+        line-height: 100px; }
+    @media (max-width: 350px) {
+      .storeMap .InfoWindow .headImg {
+        width: 100px; }
+      .storeMap .InfoWindow .content {
+        width: calc(100% - 120px); } }
+    .storeMap .InfoWindow .bottom {
+      float: left;
+      width: calc(100% - 24px);
+      height: 50px;
+      margin-left: 12px;
+      border-top: solid 1px #eee; }
+      .storeMap .InfoWindow .bottom a {
+        display: inline-block;
+        width: 100px;
+        height: 36px;
+        color: #fff;
+        margin: 7px calc(50% - 50px);
+        line-height: 36px;
+        text-align: center;
+        border-radius: 50px;
+        background-color: #46b87c; }
+    .storeMap .InfoWindow .back {
+      position: absolute;
+      width: 20px;
+      right: 2px;
+      top: 5px;
+      z-index: 999; }
+  .storeMap #panel {
+    position: fixed;
+    background-color: white;
+    max-height: 90%;
+    overflow-y: auto;
+    top: 10px;
+    right: 10px;
+    width: 280px; }
+
+/*门店地图列表*/
+/*成就中心*/
+.levelCenter {
+  float: left;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f2f2f2; }
+  .levelCenter .top {
+    position: fixed;
+    float: left;
+    width: 100%;
+    height: 240px;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    z-index: 99; }
+    .levelCenter .top .bgImg {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: -10px;
+      left: 0;
+      overflow: hidden;
+      z-index: 1; }
+      .levelCenter .top .bgImg img {
+        float: left;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        -webkit-filter: blur(2px);
+        /* Chrome, Opera */
+        -moz-filter: blur(2px);
+        -ms-filter: blur(2px);
+        filter: blur(3px);
+        overflow: hidden; }
+      .levelCenter .top .bgImg .bg {
+        position: absolute;
+        float: left;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.3);
+        z-index: 3; }
+    .levelCenter .top .bgColor {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      z-index: 2; }
+      .levelCenter .top .bgColor .bgDiv {
+        position: absolute;
+        width: 700px;
+        height: 700px;
+        left: calc(50% - 350px);
+        top: 80px;
+        border-radius: 500px;
+        background-color: #f2f2f2; }
+    .levelCenter .top .content {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      z-index: 3; }
+      .levelCenter .top .content .set {
+        position: absolute;
+        top: 15px;
+        right: 15px; }
+        .levelCenter .top .content .set img {
+          width: 26px; }
+      .levelCenter .top .content .headImg {
+        width: 130px;
+        height: 130px;
+        margin-top: 20px;
+        padding: 3px;
+        border-radius: 50%;
+        background-color: #46b87c;
+        box-shadow: 0 2px 2px #999; }
+        .levelCenter .top .content .headImg img {
+          float: left;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          border: solid 2px #f6f6f6; }
+      .levelCenter .top .content h5 {
+        font-size: 17px;
+        color: #444;
+        margin-bottom: 0; }
+      .levelCenter .top .content p {
+        margin-top: 10px;
+        font-size: 13px;
+        color: #444; }
+        .levelCenter .top .content p span {
+          font-size: 26px;
+          color: #333;
+          margin-right: 6px; }
+    @media (max-width: 350px) {
+      .levelCenter .top .bgColor .bgDiv {
+        top: 65px; }
+      .levelCenter .top .content .headImg {
+        width: 100px;
+        height: 100px;
+        margin-top: 20px; }
+      .levelCenter .top .content p {
+        margin-top: 5px; }
+        .levelCenter .top .content p span {
+          font-size: 22px; } }
+  .levelCenter .levelCenter_title {
+    position: fixed;
+    float: left;
+    width: 100%;
+    top: 225px;
+    left: 0;
+    padding: 10px 15px 0 15px;
+    background-color: #f2f2f2;
+    z-index: 99; }
+    @media (max-width: 350px) {
+      .levelCenter .levelCenter_title {
+        top: 180px; } }
+    .levelCenter .levelCenter_title h5 {
+      float: left;
+      width: 100%;
+      height: 24px;
+      color: #333;
+      font-size: 17px;
+      text-indent: 13px;
+      line-height: 24px;
+      border-left: solid 3px #46b87c; }
+    .levelCenter .levelCenter_title a {
+      position: absolute;
+      top: 25px;
+      right: 13px;
+      padding: 3px 5px;
+      color: #fff;
+      font-size: 10px;
+      border-radius: 20px;
+      background-color: #46b87c; }
+  .levelCenter .list {
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-top: 285px;
+    z-index: 98; }
+    @media (max-width: 350px) {
+      .levelCenter .list {
+        margin-top: 245px; } }
+    .levelCenter .list ul {
+      float: left;
+      width: 100%;
+      margin: 0;
+      padding: 0 12px; }
+      .levelCenter .list ul li {
+        position: relative;
+        float: left;
+        width: 100%; }
+        .levelCenter .list ul li:first-child .dian div {
+          display: none; }
+        .levelCenter .list ul li .dian {
+          position: absolute;
+          width: 9px;
+          height: 9px;
+          top: 12px;
+          border-radius: 50%;
+          background-color: #999;
+          z-index: 9; }
+          .levelCenter .list ul li .dian div {
+            position: absolute;
+            width: 1px;
+            height: 92px;
+            top: -86px;
+            left: 4px;
+            background-color: #999;
+            z-index: 8; }
+          .levelCenter .list ul li .dian.active {
+            background-color: #46b87c; }
+            .levelCenter .list ul li .dian.active div {
+              background-color: #46b87c; }
+        .levelCenter .list ul li .content {
+          float: left;
+          width: calc(100% - 20px);
+          height: 80px;
+          padding: 0 6px;
+          margin-left: 20px;
+          margin-bottom: 15px;
+          border-radius: 6px;
+          background-color: #fff; }
+          .levelCenter .list ul li .content h5 {
+            float: left;
+            width: 100%;
+            height: 34px;
+            margin: 0;
+            line-height: 34px;
+            text-indent: 8px;
+            font-size: 18px;
+            color: #46b87c; }
+            .levelCenter .list ul li .content h5 c {
+              font-size: 16px; }
+            .levelCenter .list ul li .content h5 span {
+              position: relative;
+              margin-left: 50px;
+              font-size: 11px;
+              color: #666; }
+          .levelCenter .list ul li .content .text {
+            float: left;
+            width: 100%;
+            height: 40px;
+            border-radius: 4px;
+            background-color: #f2f2f2; }
+            .levelCenter .list ul li .content .text p {
+              float: left;
+              width: 100%;
+              height: 40px;
+              margin: 0;
+              padding: 0 10px;
+              color: #555;
+              line-height: 40px;
+              font-size: 14px; }
+              .levelCenter .list ul li .content .text p span {
+                float: right;
+                font-size: 12px; }
+
+/*成就中心*/
+/*成就勋章*/
+.myBadge {
+  float: left;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f2f2f2; }
+  .myBadge .top {
+    float: left;
+    width: 100%;
+    height: 220px;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    z-index: 99; }
+    .myBadge .top .bgImg {
+      position: absolute;
+      width: 100%;
+      height: 220px;
+      top: -10px;
+      left: 0;
+      overflow: hidden;
+      z-index: 1; }
+      .myBadge .top .bgImg img {
+        float: left;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        -webkit-filter: blur(2px);
+        /* Chrome, Opera */
+        -moz-filter: blur(2px);
+        -ms-filter: blur(2px);
+        filter: blur(3px);
+        overflow: hidden; }
+      .myBadge .top .bgImg .bg {
+        position: absolute;
+        float: left;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.3);
+        z-index: 3; }
+    .myBadge .top .bgColor {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      z-index: 2; }
+      .myBadge .top .bgColor .bgDiv {
+        position: absolute;
+        width: 700px;
+        height: 700px;
+        left: calc(50% - 350px);
+        top: 80px;
+        border-radius: 500px;
+        background-color: #f2f2f2; }
+    .myBadge .top .content {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      z-index: 3; }
+      .myBadge .top .content .set {
+        position: absolute;
+        top: 15px;
+        right: 15px; }
+        .myBadge .top .content .set img {
+          width: 26px; }
+      .myBadge .top .content .headImg {
+        width: 130px;
+        height: 130px;
+        margin-top: 20px;
+        padding: 3px;
+        border-radius: 50%;
+        background-color: #46b87c;
+        box-shadow: 0 2px 2px #999; }
+        .myBadge .top .content .headImg img {
+          float: left;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          border: solid 2px #f6f6f6; }
+      .myBadge .top .content h5 {
+        font-size: 18px;
+        color: #444;
+        margin-bottom: 0; }
+      .myBadge .top .content p {
+        margin-top: 10px;
+        font-size: 13px;
+        color: #444; }
+        .myBadge .top .content p span {
+          font-size: 26px;
+          color: #333;
+          margin-right: 6px; }
+    @media (max-width: 350px) {
+      .myBadge .top {
+        height: 190px; }
+      .myBadge .top .bgColor .bgDiv {
+        top: 65px; }
+      .myBadge .top .content .headImg {
+        width: 100px;
+        height: 100px;
+        margin-top: 20px; }
+      .myBadge .top .content p {
+        margin-top: 5px; }
+        .myBadge .top .content p span {
+          font-size: 22px; } }
+  .myBadge .list_select {
+    position: relative;
+    float: left;
+    width: 100%;
+    margin-top: -10px;
+    z-index: 99; }
+    .myBadge .list_select ul {
+      float: left;
+      width: 100%;
+      padding: 0 20px;
+      margin: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      background-color: #f2f2f2; }
+      .myBadge .list_select ul li {
+        width: 82px;
+        height: 28px;
+        color: #46b87c;
+        margin: 5px 0 18px 0;
+        line-height: 26px;
+        text-align: center;
+        border-radius: 15px;
+        font-size: 13px;
+        border: solid 1px #46b87c;
+        background-color: #fff; }
+        .myBadge .list_select ul li.active {
+          color: #fff;
+          border: solid 1px #46b87c;
+          background-color: #46b87c; }
+  .myBadge .list {
+    position: relative;
+    float: left;
+    width: 100%;
+    padding: 0 12px;
+    z-index: 99; }
+    .myBadge .list .content {
+      float: left;
+      width: 100%;
+      height: 132px;
+      margin-bottom: 24px;
+      background-color: #fff;
+      border-radius: 6px; }
+      .myBadge .list .content.shangmian li strong {
+        position: absolute;
+        display: inline-block;
+        width: 100%;
+        top: 7px;
+        left: 0;
+        text-align: center;
+        color: #f0f0dc;
+        font-size: 12px;
+        font-weight: 400; }
+      .myBadge .list .content.xiamian li strong {
+        position: absolute;
+        display: inline-block;
+        width: 100%;
+        top: 27px;
+        left: 0;
+        text-align: center;
+        color: #f0f0dc;
+        font-size: 12px;
+        font-weight: 400; }
+      .myBadge .list .content .title {
+        float: left;
+        width: 100%;
+        height: 40px;
+        padding: 0 15px;
+        font-size: 15px;
+        line-height: 40px; }
+        .myBadge .list .content .title h5 {
+          float: left;
+          width: 100px;
+          height: 40px;
+          line-height: 40px;
+          margin: 0; }
+        .myBadge .list .content .title span {
+          float: right; }
+          .myBadge .list .content .title span > strong {
+            color: #46b87c; }
+      .myBadge .list .content ul {
+        float: left;
+        width: calc(100% - 24px);
+        padding: 8px 0 16px 0;
+        margin: 0 12px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        overflow-y: hidden;
+        overflow-x: scroll; }
+        .myBadge .list .content ul li {
+          flex-shrink: 0;
+          width: 90px; }
+          @media (min-width: 350px) {
+            .myBadge .list .content ul li {
+              width: 86px; } }
+          .myBadge .list .content ul li a {
+            position: relative;
+            float: left;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center; }
+            .myBadge .list .content ul li a img {
+              height: 54px; }
+            .myBadge .list .content ul li a span {
+              font-size: 11px;
+              color: #666;
+              margin-top: 4px;
+              word-break: break-all;
+              text-overflow: ellipsis;
+              display: -webkit-box;
+              /** 将对象作为伸缩盒子模型显示 **/
+              -webkit-box-orient: vertical;
+              /** 设置或检索伸缩盒对象的子元素的排列方式 **/
+              -webkit-line-clamp: 1;
+              /** 显示的行数 **/
+              overflow: hidden;
+              /** 隐藏超出的内容 **/ }
+
+/*成就勋章*/
+/*勋章详情*/
+.myBadgeM {
+  float: left;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden; }
+@-webkit-keyframes rotation {
+  from {
+    -webkit-transform: rotate(0deg); }
+  to {
+    -webkit-transform: rotate(360deg); } }
+  .myBadgeM .bgImg {
+    position: relative;
+    float: left;
+    width: 100%; }
+    .myBadgeM .bgImg img {
+      position: absolute;
+      width: 740px;
+      left: calc(50% - 370px);
+      top: -150px;
+      opacity: 0.9;
+      -webkit-transform: rotate(360deg);
+      animation: rotation 16s linear infinite;
+      -moz-animation: rotation 16s linear infinite;
+      -webkit-animation: rotation 16s linear infinite;
+      -o-animation: rotation 16s linear infinite; }
+    @media (max-width: 350px) {
+      .myBadgeM .bgImg img {
+        position: absolute;
+        width: 660px;
+        left: calc(50% - 330px);
+        top: -160px; } }
+  .myBadgeM .message {
+    position: relative;
+    float: left;
+    width: 100%;
+    height: 100%; }
+    .myBadgeM .message .bgGreen {
+      position: absolute;
+      width: 100%;
+      height: 140px;
+      left: 0;
+      bottom: 0;
+      z-index: 8;
+      background: #46b87c;
+      /* 一些不支持背景渐变的浏览器 */ }
+    .myBadgeM .message .bgBian {
+      position: absolute;
+      width: 100%;
+      height: calc(70% - 140px);
+      left: 0;
+      bottom: 140px;
+      z-index: 8;
+      background: rgba(70, 184, 124, 0.5);
+      /* 一些不支持背景渐变的浏览器 */
+      background: -moz-linear-gradient(top, rgba(70, 184, 124, 0.5), #46b87c);
+      background: -webkit-gradient(linear, 0 0, 0 bottom, from(rgba(70, 184, 124, 0.5)), to(#46b87c));
+      background: -o-linear-gradient(top, rgba(70, 184, 124, 0.5), #46b87c); }
+    .myBadgeM .message .bg {
+      position: absolute;
+      width: 100%;
+      height: 30%;
+      left: 0;
+      bottom: 70%;
+      z-index: 8;
+      background-color: rgba(70, 184, 124, 0.5); }
+    .myBadgeM .message .content {
+      position: relative;
+      float: left;
+      width: 100%;
+      height: 100%;
+      z-index: 10; }
+      .myBadgeM .message .content img {
+        position: absolute;
+        width: 200px;
+        left: calc(50% - 100px);
+        top: 130px; }
+      @media (max-width: 350px) {
+        .myBadgeM .message .content img {
+          position: absolute;
+          width: 160px;
+          left: calc(50% - 80px);
+          top: 100px; } }
+      .myBadgeM .message .content span {
+        position: absolute;
+        display: inline-block;
+        width: 100%;
+        left: 0;
+        bottom: 65px;
+        font-size: 12px;
+        text-align: center;
+        color: #f0ebdc; }
+      .myBadgeM .message .content p {
+        position: absolute;
+        display: inline-block;
+        width: 100%;
+        left: 0;
+        bottom: 110px;
+        font-size: 16px;
+        text-align: center;
+        color: #f0ebdc; }
+      .myBadgeM .message .content h5 {
+        position: absolute;
+        display: inline-block;
+        width: 100%;
+        left: 0;
+        bottom: 140px;
+        font-size: 22px;
+        text-align: center;
+        color: #f0ebdc; }
+
+/*勋章详情*/
+/*城市列表*/
+.cityList {
+  float: left;
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f6f6f6; }
+  .cityList .title {
+    float: left;
+    width: 100%;
+    height: 44px;
+    line-height: 44px;
+    color: #999;
+    font-size: 15px;
+    text-indent: 14px; }
+  .cityList .list {
+    float: left;
+    width: 100%;
+    padding: 0 14px; }
+    .cityList .list ul {
+      float: left;
+      width: 100%;
+      padding: 0;
+      margin: 0; }
+      .cityList .list ul li {
+        float: left;
+        width: 28%;
+        height: 42px;
+        margin-right: 8%;
+        margin-bottom: 10px;
+        line-height: 40px;
+        text-align: center;
+        color: #333;
+        font-size: 15px;
+        background-color: #fff;
+        border-radius: 5px;
+        border: solid 1px #ddd; }
+        .cityList .list ul li:nth-of-type(3n) {
+          margin-right: 0; }
+
+/*城市列表*/
+
+/*# sourceMappingURL=style.css.map */

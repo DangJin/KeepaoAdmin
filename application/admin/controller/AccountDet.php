@@ -85,6 +85,10 @@ class AccountDet extends Common
             $data['useId'] = $request->param('useId');
         }
 
+        if ($request->has('type', 'param', true)) {
+            $data['type'] = $request->param('type');
+        }
+
         if ($request->has('page', 'param', true)) {
             $page = $request->param('page');
             if ($request->has('limit', 'param', true)) {
@@ -105,6 +109,7 @@ class AccountDet extends Common
         if (!$request->has('endTime', 'param', true)) {
             $flag = false;
         }
+
         if (!$flag) {
             return json([
                 'value' => false,
@@ -113,6 +118,7 @@ class AccountDet extends Common
                 ]
             ]);
         }
+
         $time[0] = strtotime($request->param('startTime'));
         $time[1] = strtotime($request->param('endTime'));
         if (!($time[0] && $time[1])) {
@@ -131,6 +137,10 @@ class AccountDet extends Common
 
         if ($request->has('useId', 'param', true)) {
             $data['useId'] = $request->param('useId');
+        }
+
+        if ($request->has('type', 'param', true)) {
+            $data['type'] = $request->param('type');
         }
 
         if ($request->has('page', 'param', true)) {

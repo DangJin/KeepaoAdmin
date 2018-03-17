@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人中心</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/bootstrap.3.3.7min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script data-main="scripts/myMessage" src="js/require.js"></script>
+</head>
+<body>
+<div class="myMessage">
+    <div class="onload">
+        <img src="image/loading.png" alt="">
+        <p></p>
+    </div>
+</div>
+<script type="text/html" id="myMessage">
+
+    <div class="top">
+        <div class="bgImg">
+            <img src="{{data.heading}}" alt="">
+            <div class="bg"></div>
+        </div>
+        <div class="bgColor">
+            <div class="bgDiv"></div>
+        </div>
+        <div class="content">
+            <div class="set"><a href="setUp.html"><img src="image/set3.png" alt=""></a></div>
+            <div class="headImg">
+                <img src="{{data.heading}}" alt="">
+            </div>
+            <h5>{{data.name}}</h5>
+            <div class="guanzhu">
+                <a href="guanzhu2.html?type=2&uid={{data.uId}}">{{data.fensi}}粉丝</a>·<a
+                    href="guanzhu1.html?type=1&uid={{data.uId}}">{{data.guanzhu}}关注</a>
+            </div>
+            <div class="money">
+                <p><a href="myWallet.html?uid={{data.uId}}"><img src="image/yajin.png" alt="">余额：￥{{data.balance}}</a>
+                </p>
+                <p><a href="jfHistory.html?uid={{data.uId}}"><img src="image/jifen.png" alt="">积分：{{data.point}}</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="myMessage_content">
+        <div class="message">
+            <div class="jindu">
+                <div class="level">KP.<span>{{data.dengji[0][0].level}}</span></div>
+                <div class="content">
+                    <div class="jindu_top"><span> {{data.exper}} 成就值</span><a href="levelCenter.html">成就中心 <i
+                            class="fa fa-angle-right"></i></a>
+                    </div>
+                    <div class="roll">
+                        <div style="width:{{(data.exper - data.dengji[0][0].condition)/(data.dengji[1][0].condition - data.dengji[0][0].condition)*100}}%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="myMessage_content">
+        <div class="message">
+            <a class="title">运动数据<i class="fa fa-angle-right"></i></a>
+            <div class="echart">
+                <div id="main"></div>
+            </div>
+        </div>
+    </div>
+    <div class="myMessage_content">
+        <div class="message">
+            <a id="myBadgeM">
+                <div class="xunzhang">
+                    <p>勋章</p>
+                    <div class="imgList">
+                        {{if data.dabiao[0].level != 0}}
+                        <div class="imgListItem">
+                            <img src="image/marked4.png" alt="">
+                            <span>{{data.dabiao[0].level}}</span>
+                        </div>
+                        {{/if}}
+                        {{if data.denglu[0].level != 0}}
+                        <div class="imgListItem shang">
+                            <img src="image/marked1.png" alt="">
+                            <span>{{data.denglu[0].level}}</span>
+                        </div>
+                        {{/if}}
+                        {{if data.ranka[0].level != 0}}
+                        <div class="imgListItem">
+                            <img src="image/marked2.png" alt="">
+                            <span>{{data.ranka[0].level}}</span>
+                        </div>
+                        {{/if}}
+                        {{if data.dianzan[0].level != 0}}
+                        <div class="imgListItem">
+                            <img src="image/marked7.png" alt="">
+                            <span>{{data.dianzan[0].level}}</span>
+                        </div>
+                        {{/if}}
+                        {{if data.huozan[0].level != 0}}
+                        <div class="imgListItem">
+                            <img src="image/marked3.png" alt="">
+                            <span>{{data.huozan[0].level}}</span>
+                        </div>
+                        {{/if}}
+                        {{if data.fenxaing[0].level != 0}}
+                        <div class="imgListItem">
+                            <img src="image/marked5.png" alt="">
+                            <span>{{data.fenxiang[0].level}}</span>
+                        </div>
+                        {{/if}}
+                        {{if data.yaoqing[0].level != 0}}
+                        <div class="imgListItem">
+                            <img src="image/marked6.png" alt="">
+                            <span>{{data.yaoqing[0].level}}</span>
+                        </div>
+                        {{/if}}
+                    </div>
+                    <i class="fa fa-angle-right"></i>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="myMessage_content">
+        <div class="message">
+            <div class="nine">
+                <ul>
+                    <li>
+                        <a href="deposit.html?uid={{data.uId}}">
+                            <img src="image/mine1.png" alt="">
+                            <span>押金</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="coupon.html?uid={{data.uId}}">
+                            <img src="image/mine2.png" alt="">
+                            <span>优惠券</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="myVipCard.html?uid={{data.uId}}">
+                            <img src="image/mine3.png" alt="">
+                            <span>我的会员</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="image/mine4.png" alt="">
+                            <span>邀请好友</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="systemNews.html?uid={{data.uId}}">
+                            <img src="image/mine5.png" alt="">
+                            <span>系统通知</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="leaveWord.html?uid={{data.uId}}">
+                            <img src="image/mine6.png" alt="">
+                            <span>留言管理</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="repair.html?uid={{data.uId}}">
+                            <img src="image/mine7.png" alt="">
+                            <span>故障报修</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="fankui.html?uid={{data.uId}}">
+                            <img src="image/mine8.png" alt="">
+                            <span>意见反馈</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="customService.html">
+                            <img src="image/mine9.png" alt="">
+                            <span>常见问题</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</script>
+</body>
+</html>

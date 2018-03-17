@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的钱包</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/bootstrap.3.3.7min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script data-main="scripts/myWallet" src="js/require.js"></script>
+</head>
+<body>
+<div class="myWallet">
+</div>
+<script type="text/html" id="myWallet">
+    <div class="myWallet_top">
+        <span>当前余额</span>
+        <h5><span>￥</span>{{data.change[0].balance}}</h5>
+        <div class="chongzhi">
+            <a href="recharge.html">充&nbsp;&nbsp;值</a>
+            <a href="recharge.html">提&nbsp;&nbsp;现</a>
+        </div>
+    </div>
+    <div class="myWallet_title">
+        <h5>余额明细</h5>
+    </div>
+    <div class="myWallet_list">
+        <ul>
+            {{each data.data.data}}
+            <li>
+                {{if $value.type == 1}}
+                <h5>缴纳押金</h5>
+                {{else if $value.type == 2}}
+                <h5>购买会员卡</h5>
+                {{else if $value.type == 3}}
+                <h5>提现</h5>
+                {{else if $value.type == 4}}
+                <h5>退押金</h5>
+                {{else}}
+                <h5>充值</h5>
+                {{/if}}
+                <p>{{$value.createTime}}</p>
+                <span>{{$value.type > 3? '+' : '-'}}{{$value.money}}</span>
+            </li>
+            {{/each}}
+        </ul>
+    </div>
+</script>
+</body>
+</html>

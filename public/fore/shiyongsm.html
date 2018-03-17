@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>设备使用说明</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/bootstrap.3.3.7min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script data-main="scripts/shiyongsm" src="js/require.js"></script>
+</head>
+<body>
+<div class="shiyongsm">
+    <div class="onload">
+        <img src="image/loading.png" alt="">
+        <p></p>
+    </div>
+</div>
+<script type="text/html" id="shiyongsm">
+    {{each data}}
+    <h5>{{$value.name}}使用说明书</h5>
+    <div class="content"></div>
+    {{/each}}
+</script>
+
+</body>
+</html>

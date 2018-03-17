@@ -68,7 +68,7 @@ class Coupon extends Common{
         $list = $this->alias('coupon')
             ->where($map)
             ->join('__USE_COU__ user_cou','user_cou.couId = coupon.couId','LEFT');
-
+//        dump($map);
         if($date){
             $list = $list->whereTime('coupon.startDate','<=',$date)->whereTime('coupon.endDate','>=',$date);
         }

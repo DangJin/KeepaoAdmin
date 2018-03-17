@@ -9,6 +9,7 @@
 namespace app\admin\model;
 
 
+use app\index\model\PointDet;
 use think\Model;
 
 class PointRuleDet extends Model
@@ -152,10 +153,14 @@ class PointRuleDet extends Model
 
     public function select($type, $page = 1, $limit = 10)
     {
+        $prd = new PointRuleDet;
+        $prd = $prd->alias('a');
         if (!empty($type))
-            $result = PointRuleDet::where('prId', $type)->paginate($limit, false, ['page' => $page]);
-        else
-            $result = paginate($limit, false, ['page' => $page]);
+            $prd = $prd->where('a.prId', $type);//->paginate($limit, false, ['page' => $page]);
+
+        $result = $prd->join('point_rule pr', 'pr.prId=a.prId', 'LEFT')
+            ->field('a.*')->field('pr.name')->paginate($limit, false, ['page'=>$page]);
+
         if ($result->count() > 0) {
             return [
                 'value' => true,

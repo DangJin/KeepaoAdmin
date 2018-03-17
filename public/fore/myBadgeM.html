@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>成就勋章</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/bootstrap.3.3.7min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script data-main="scripts/myBadgeM" src="js/require.js"></script>
+</head>
+<body>
+<div class="myBadgeM" style="background-color: #999">
+    <div class="onload">
+        <img src="image/loading.png" alt="">
+        <p></p>
+    </div>
+</div>
+<script type="text/html" id="myBadgeM">
+    {{if data.type == 1}}
+    <div class="bgImg">
+        <img src="image/roll.png" alt="">
+    </div>
+    {{/if}}
+    <div class="message">
+        {{if data.type == 1}}
+        <div class="bgGreen"></div>
+        <div class="bgBian"></div>
+        <div class="bg"></div>
+        {{/if}}
+        <div class="content">
+            <img src="{{data.image}}" alt="">
+            <h5>{{data.name}}</h5>
+            <p>{{data.type == 1? '已获得' : '未获得'}}</p>
+            <span>已有{{data.num}}人获得</span>
+        </div>
+    </div>
+</script>
+</body>
+<script src="js/jquery.2.1.1min.js"></script>
+</html>

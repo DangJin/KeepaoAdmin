@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>马上开跑官网PC</title>
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="index">
+    <div class="index_menu">
+        <img src="image/logo.png" alt="">
+        <ul>
+            <li data-id="4">联系我们</li>
+            <li data-id="3">门店列表</li>
+            <li data-id="2">公众号</li>
+            <li data-id="1">关于<span>KP.</span></li>
+        </ul>
+    </div>
+
+    <div class="swiper-container swiper-container-vertical">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <div class="index_content">
+                    <div class="index1_QR">
+                        <div class="content">
+                            <img src="image/QR.jpg" alt="">
+                            <span>扫码关注公众号</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="index_content KP_rule">
+                    <ul>
+                        <li>
+                            <h5>NEW</h5>
+                            <p>独创健身房零售新模式，按天支付，不限时不限使用次数</p>
+                        </li>
+                        <li>
+                            <h5><span>￥</span>9.9</h5>
+                            <p>价格低至9.9元/天，灵活购买，运动就是这么简单</p>
+                        </li>
+                        <li>
+                            <h5>24<span>h</span></h5>
+                            <p>7 x 24小时全年无休，运动时间随您心愿</p>
+                        </li>
+                        <li>
+                            <h5>AI</h5>
+                            <p>智能设备连接，运动数据一目了然</p>
+                        </li>
+                    </ul>
+                    <img src="image/logo2.png" alt="">
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="index_content">
+                    <div class="index3_QR">
+                        <div class="content">
+                            <img src="image/QR.jpg" alt="">
+                            <span>扫码关注公众号</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <div class="aboutUs">
+                    <img src="image/index4_J.png" alt="">
+                    <div class="content">
+                        <p>加入我们: hr@keepao.com</p>
+                        <p>商务合作: bd@keepao.com</p>
+                        <p>门店加盟: md@keepao.com</p>
+                    </div>
+                    <div class="bottom">
+                        <span>Copyright 2018-2050 马上开炮(内径)网络科技有限公司</span>
+                        <span>ALL Right Reserved 京ICP备18006815</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+</div>
+</body>
+<script src="js/jquery.2.1.1min.js"></script>
+<script src="js/swiper.min.js"></script>
+<script>
+  var swiper = new Swiper('.swiper-container', {
+    direction: 'vertical',
+    slidesPerView: 1,
+    spaceBetween: 0,
+    mousewheel: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true
+    }
+  })
+
+  $('.index_menu>ul>li').click(function () {
+    var Nid = $(this).data('id')
+    swiper.slideTo(Nid, 600, false)
+    $('.index_menu>ul>li').removeClass('active')
+    $(this).addClass('active')
+  })
+
+  $('.index_menu>img').click(function () {
+    swiper.slideTo(0, 600, false)
+    $('.index_menu>ul>li').removeClass('active')
+  })
+
+</script>
+</html>

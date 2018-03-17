@@ -188,13 +188,19 @@ class LevCar extends Model
     public function select($data, $page = 1, $limit = 10)
     {
         $levcar = new LevCar;
+        $levcar = $levcar->alias('a');
         if (isset($data['mcId']))
-            $levcar = $levcar->where('mcId',$data['mcId']);//->where('type', $type)->order('state')->paginate($limit, false, ['page' => $page]);
+            $levcar = $levcar->where('a.mcId',$data['mcId']);//->where('type', $type)->order('state')->paginate($limit, false, ['page' => $page]);
         if (isset($data['levId']))
-            $levcar = $levcar->where('levId',$data['levId']);
+            $levcar = $levcar->where('a.levId',$data['levId']);
         if (isset($data['id']))
-            $levcar = $levcar->where('id',$data['id']);
-        $levcar = $levcar->paginate($limit, false, ['page' => $page]);
+            $levcar = $levcar->where('a.id',$data['id']);
+
+        $levcar = $levcar
+            ->join('stolevel s', 's.id=a.levId', 'LEFT')
+            ->join('memcard m', 'm.memId=a.mcId', 'LEFT')
+            ->field('a.*')->field('m.name mname')->field('s.name lname')
+            ->paginate($limit, false, ['page' => $page]);
         $flag = false;
         $msg = '没有找到数据';
         if ($levcar->count() > 0) {

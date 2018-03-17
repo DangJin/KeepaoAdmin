@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>成就勋章</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/bootstrap.3.3.7min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script data-main="scripts/myBadge" src="js/require.js"></script>
+</head>
+<body>
+<div class="myBadge">
+    <div class="onload">
+        <img src="image/loading.png" alt="">
+        <p></p>
+    </div>
+</div>
+<script type="text/html" id="myBadge">
+
+    <div class="top">
+        <div class="bgImg">
+            <img src="{{data.headimg}}" alt="">
+            <div class="bg"></div>
+        </div>
+        <div class="bgColor">
+            <div class="bgDiv"></div>
+        </div>
+        <div class="content">
+            <div class="headImg">
+                <img src="{{data.headimg}}" alt="">
+            </div>
+            <h5>{{data.name}}</h5>
+            <p>共获得{{data.data.count}}枚勋章</p>
+        </div>
+    </div>
+    <div class="list_select">
+        <ul>
+            <li class="active">运动勋章</li>
+            <li>魅力勋章</li>
+        </ul>
+    </div>
+    <div class="list">
+        {{if data.type == 1}}
+        <div class="content xiamian">
+            <div class="title">
+                <h5>达标勋章</h5>
+                <span><strong>{{data.dabiao}}</strong>/{{data.data.data.dabiao.length}}</span>
+            </div>
+            <ul>
+                {{each data.data.data.dabiao}}
+                <li>
+                    <a data-id="{{$value.id}}" data-type="{{($index + 1) > data.dabiao ? '0' : '1' }}">
+                        <img src="image/{{($index + 1) > data.dabiao ? 'mark4' : 'marked4' }}.png" alt="">
+                        <span>连续{{$value.condition}}周达标</span>
+                        <strong>{{$index + 1}}</strong>
+                    </a>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="content shangmian">
+            <div class="title">
+                <h5>登录勋章</h5>
+                <span><strong>{{data.denglu}}</strong>/{{data.data.data.denglu.length}}</span>
+            </div>
+            <ul>
+                {{each data.data.data.denglu}}
+                <li>
+                    <a data-id="{{$value.id}}" data-type="{{($index + 1) > data.denglu ? '0' : '1' }}">
+                        <img src="image/{{($index + 1) > data.denglu ? 'mark1' : 'marked1' }}.png" alt="">
+                        <span>连续{{$value.condition}}天</span>
+                        <strong>{{$index + 1}}</strong>
+                    </a>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="content xiamian">
+            <div class="title">
+                <h5>燃卡勋章</h5>
+                <span><strong>{{data.ranka}}</strong>/{{data.data.data.ranka.length}}</span>
+            </div>
+            <ul>
+                {{each data.data.data.ranka}}
+                <li>
+                    <a data-id="{{$value.id}}" data-type="{{($index + 1) > data.ranka ? '0' : '1' }}">
+                        <img src="image/{{($index + 1) > data.ranka ? 'mark2' : 'marked2' }}.png" alt="">
+                        <span>燃卡{{$value.condition}}</span>
+                        <strong>{{$index + 1}}</strong>
+                    </a>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        {{/if}}
+        {{if data.type == 2}}
+        <div class="content xiamian">
+            <div class="title">
+                <h5>点赞勋章</h5>
+                <span><strong>{{data.dianzan}}</strong>/{{data.data.data.dianzan.length}}</span>
+            </div>
+            <ul>
+                {{each data.data.data.dianzan}}
+                <li>
+                    <a data-id="{{$value.id}}" data-type="{{($index + 1) > data.dianzan ? '0' : '1' }}">
+                        <img src="image/{{($index + 1) > data.dianzan ? 'mark7' : 'marked7' }}.png" alt="">
+                        <span>点赞{{$value.condition}}次</span>
+                        <strong>{{$index + 1}}</strong>
+                    </a>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="content xiamian">
+            <div class="title">
+                <h5>获赞勋章</h5>
+                <span><strong>{{data.huozan}}</strong>/{{data.data.data.huozan.length}}</span>
+            </div>
+            <ul>
+                {{each data.data.data.huozan}}
+                <li>
+                    <a data-id="{{$value.id}}" data-type="{{($index + 1) > data.huozan ? '0' : '1' }}">
+                        <img src="image/{{($index + 1) > data.huozan ? 'mark3' : 'marked3' }}.png" alt="">
+                        <span>获得{{$value.condition}}赞</span>
+                        <strong>{{$index + 1}}</strong>
+                    </a>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="content xiamian">
+            <div class="title">
+                <h5>邀请勋章</h5>
+                <span><strong>{{data.yaoqing}}</strong>/{{data.data.data.yaoqing.length}}</span>
+            </div>
+            <ul>
+                {{each data.data.data.yaoqing}}
+                <li>
+                    <a data-id="{{$value.id}}" data-type="{{($index + 1) > data.yaoqing ? '0' : '1' }}">
+                        <img src="image/{{($index + 1) > data.yaoqing ? 'mark5' : 'marked5' }}.png" alt="">
+                        <span>邀请好友{{$value.condition}}次</span>
+                        <strong>{{$index + 1}}</strong>
+                    </a>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        <div class="content xiamian">
+            <div class="title">
+                <h5>分享勋章</h5>
+                <span><strong>{{data.fenxiang}}</strong>/{{data.data.data.fenxiang.length}}</span>
+            </div>
+            <ul>
+                {{each data.data.data.fenxiang}}
+                <li>
+                    <a data-id="{{$value.id}}" data-type="{{($index + 1) > data.fenxiang ? '0' : '1' }}">
+                        <img src="image/{{($index + 1) > data.fenxiang ? 'mark6' : 'marked6' }}.png" alt="">
+                        <span>分享{{$value.condition}}次</span>
+                        <strong>{{$index + 1}}</strong>
+                    </a>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        {{/if}}
+    </div>
+</script>
+</body>
+</html>

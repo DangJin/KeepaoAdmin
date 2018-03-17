@@ -11,7 +11,7 @@ namespace app\index\model;
 
 class Stocard extends Common
 {
-    public function getCard($data, $page = 1, $limit = 10) {
+    public function getCard($data, $page = 1, $limit = 10, $model = false) {
         $stocard = new Stocard;
         if (isset($data['stoId'])) {
             $stocard = $stocard->where('stoId', $data['stoId']);
@@ -25,8 +25,8 @@ class Stocard extends Common
             ->alias('a')
             ->join('memcard m', 'a.type=m.memId', 'LEFT')
             ->where('a.state', 1)
-            ->field('a.price,m.name,m.day,m.point,m.description,a.fprice')
-            ->paginate($limit, false, ['page' => $page]);
+            ->field('a.price,m.name,m.day,m.point,m.description,a.fprice,m.thum,m.type')
+            ->paginate($limit, $model, ['page' => $page]);
 
         return [
             'code' => 200,

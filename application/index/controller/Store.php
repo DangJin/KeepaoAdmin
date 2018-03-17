@@ -73,6 +73,14 @@ class Store extends Common {
         $config = $store->getStoreConfig($id);      //门店配置
         $devices = $store->getStoreDevices($id);    //门店设备
         $images = $store->getStoreImg($id);         //门店图片
+        $stocard = new model\Stocard();
+        $cards = $stocard
+            ->where('stoId', $id)
+            ->alias('a')
+            ->join('memcard m', 'a.type=m.memId', 'LEFT')
+            ->where('a.state', 1)
+            ->field('m.thum')->select();
+
 
         if(!$config){$config = '';}
         if(!$devices){$devices = '';}
@@ -81,7 +89,7 @@ class Store extends Common {
         $data['devices'] = $devices;
         $data['config']  = $config;
         $data['images']  = $images;
-
+        $data['cards']  = $cards;
         return result_array(['data' => $data]);
     }
 
@@ -94,7 +102,7 @@ class Store extends Common {
         }
 
         if ($request->has('id', 'param', true)) {
-            $data['stoId'] = $request->param('stoId');
+            $data['id'] = $request->param('id');
         }
 
         $page = $request->has('page', 'param', true) ? $request->param('page') : 1;
@@ -109,5 +117,11 @@ class Store extends Common {
         $stocard = new model\Stocard();
 
         return json($stocard->getCard($data, $page, $limit));
+    }
+
+    public function getCityList()
+    {
+        $store = new model\Store();
+        return json($store->getCityList());
     }
 }

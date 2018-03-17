@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>排行榜</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/bootstrap.3.3.7min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script data-main="scripts/ranking" src="js/require.js"></script>
+</head>
+<body>
+<div class="ranking">
+    <div class="top_bg"></div>
+    <div class="ranking_top">
+        <div class="ranking_select">
+            <ul>
+                <li class="active">本 地</li>
+                <li>全 国</li>
+                <li></li>
+            </ul>
+        </div>
+        <a href=""><img src="image/fenxiang.png" alt=""></a>
+    </div>
+    <div class="ranking_content_title">
+    </div>
+    <script type="text/html" id="ranking_content_title">
+        <h5>{{data.calorie}}<span>kcl</span></h5>
+        <div class="headImg">
+            <img src="{{data.heading}}" alt="">
+        </div>
+        <h5>{{data.seniority}}<span>名</span></h5>
+    </script>
+    <div class="ranking_content_list">
+    </div>
+    <script type="text/html" id="ranking_content_list">
+        <ul>
+            {{each data}}
+            <li>
+                <div class="rank">{{$value.seniority}}</div>
+                <div class="headImg"><img src="{{$value.heading}}" alt=""></div>
+                <div class="content">
+                    <h5>{{$value.name}}</h5>
+                    <p>{{$value.calorie}} kcl</p>
+                </div>
+                <div class="like" data-spoId="{{$value.spoId}}">
+                    <img src="image/{{$value.praise == '1' ? 'like1' : 'like2'}}.png" alt="">
+                    <span>{{$value.num}}</span>
+                </div>
+            </li>
+            {{/each}}
+        </ul>
+    </script>
+</div>
+</body>
+</html>

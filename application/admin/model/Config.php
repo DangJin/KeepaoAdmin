@@ -85,7 +85,19 @@ class Config extends Model
         $arr = array_filter($arr);
         Db::startTrans();
         try {
-            Db::table('config')->delete($arr);
+            foreach ($arr as $item) {
+                $config = Config::get($item);
+                if (!is_null($config)) {
+                    if (!empty($config->getAttr('imgid'))) {
+                        $img = Imgs::get($config->getAttr('imgid'));
+                        if (!is_null($img)) {
+                            unlink($img->getAttr('path'));
+                            $img->delete();
+                        }
+                    }
+                    $config->delete();
+                }
+            }
             Db::table('sto_con')->where('conId', 'in', $arr)->delete();
             Db::commit();
         }  catch (\Exception $e) {

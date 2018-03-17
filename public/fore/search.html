@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>搜索</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/bootstrap.3.3.7min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script data-main="scripts/search" src="js/require.js"></script>
+</head>
+<body>
+<div class="search">
+    <div class="search_topSearch">
+        <div class="search_input">
+            <img src="image/search.png" alt="">
+            <input type="text" placeholder="健身">
+        </div>
+        <a href="javascript:void(0)">搜索</a>
+    </div>
+    <div class="search_list">
+    </div>
+    <script type="text/html" id="search_list">
+        {{each data}}
+        <div class="item">
+            <a data-stoId="{{$value.stoId}}">
+                <img src="image/jijiang.jpg" alt="">
+                <!--<img src="image/list1.jpg" alt="">-->
+                <div class="content">
+                    <h5>{{$value.stoname}}</h5>
+                    <span><img src="image/adress2.png" alt="">距离{{($value.juli/1000).toFixed(1)}}km</span>
+                    <p>地址：{{$value.address}}</p>
+                    <p>会员卡：9.9元/天起</p>
+                    <div class="operation">
+                        <i class="fa fa-angle-right"></i>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {{/each}}
+    </script>
+</div>
+</body>
+<script src="js/jquery.2.1.1min.js"></script>
+<script>
+
+</script>
+</html>

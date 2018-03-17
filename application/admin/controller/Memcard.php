@@ -23,7 +23,7 @@ class Memcard extends Common
     public function select(Request $request)
     {
         $data = [];
-        if ($request->has('page', 'param', true)) {
+        if ($request->has('name', 'param', true)) {
             $data['name'] = $request->param('name');
         }
 

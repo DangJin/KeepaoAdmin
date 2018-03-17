@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>门店详情</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/bootstrap.3.3.7min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script data-main="scripts/storeM" src="js/require.js"></script>
+</head>
+<body>
+<div class="storeM">
+    <div class="onload">
+        <img src="image/loading.png" alt="">
+        <p></p>
+    </div>
+</div>
+<script type="text/html" id="storeM">
+    <div class="top_news animated fadeInDownBig">
+        <i class="fa fa-bell-o"></i>
+        <span>通知：门店装修中，暂停营业</span>
+        <img src="image/off1.png" alt="">
+    </div>
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            {{each data.images}}
+            <div class="swiper-slide"><img src="{{$value.name}}" alt=""></div>
+            {{/each}}
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+    </div>
+    <div class="storeM_message">
+        <div class="content">
+            <h5>{{data.stoname}}</h5>
+            <p>地址：{{data.address}}</p>
+            <a href="javascript:void(0)"><img src="image/address1.png" alt=""></a>
+        </div>
+    </div>
+    <div class="storeM_vipCard">
+        <div class="title">会员卡 <a href="vipCard.html?stoid={{data.stoId}}">更多 <i class="fa fa-angle-right"></i></a></div>
+        <div class="cardList">
+            <ul>
+                {{each data.cards}}
+                <li>
+                    <a href="vipCard.html?stoid={{data.stoId}}">
+                        <img src="image/tiancard.png" alt="">
+                    </a>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+    <div class="storeM_product">
+        <div class="title">健身器材</div>
+        <div class="content">
+            <ul>
+                {{each data.devices}}
+                <li>
+                    <img src="image/list1.jpg" alt="">
+                    <h5>{{$value.name}}</h5>
+                    <p>空闲设备：1/7</p>
+                    <a data-equId="{{$value.equId}}">使用说明 <i class="fa fa-angle-right"></i></a>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+    <div class="storeM_peizhi">
+        <div class="title">门店配置</div>
+        <div class="list">
+            <ul>
+                {{each data.config}}
+                <li>
+                    <!--<img src="{{$value.value}}" alt="">-->
+                    <img src="image/cfj.png" alt="">
+                    <span>{{$value.name}}</span>
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+    </div>
+
+</script>
+</body>
+</html>

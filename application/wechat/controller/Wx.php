@@ -8,14 +8,15 @@
 
 namespace app\wechat\controller;
 
-use Hooklife\ThinkphpWechat\Wechat;
-use EasyWeChat\Foundation\Application;
-use think\Config;
-use think\Session;
+use think\Log;
 
 class Wx extends Common
 {
 
+    public function __construct(\think\Request $request = null)
+    {
+        parent::__construct($request);
+    }
 
     /**
      * @throws \EasyWeChat\Core\Exceptions\InvalidArgumentException
@@ -23,22 +24,49 @@ class Wx extends Common
      */
     public function serve()
     {
-        $conf   = Config::get("wxconfig");
-        $app    = new Application($conf);
-        $server = $app->server;
-
-        $server->setMessageHandler(
+        $this->server->setMessageHandler(
             function ($message) {
-                return "您好！欢迎关注我!".$message;
+                switch ($message->MsgType) {
+                    case 'event':
+                        return $this->eventHandle($message);
+                        break;
+                    case 'text':
+                        return '文字消息';
+                        break;
+                    default:
+                        return '收到其它消息';
+                        break;
+                }
             }
         );
-        $server->serve()->send();
+        $response = $this->server->serve();
+        $response->send();
     }
 
-    public function index()
+
+    public function eventHandle($message)
     {
-        dump(Session::get('wechat_user'));
-        dump(Session::get('user_id'));
-        Session::set('wechat_user',null);
+        // 处理事件
+        if ($message->Event == "SCAN" || $message->Event == "subscribe") {
+            if ($message->EventKey) {
+                // 处理
+                $event_key = explode("_", $message->EventKey);
+                if (count($event_key) >= 3) {
+                    $action  = $event_key[1];
+                    $lock_sn = $event_key[2];
+                } else {
+                    $action  = $event_key[0];
+                    $lock_sn = $event_key[1];
+                }
+                if ($action == 56) {
+                    $res = openLock(
+                        'wmj_nCDopzTEiwv', 'ZcSmLUDRIFFvefLnrIZpSmMtrHEDvto',
+                        $lock_sn
+                    );
+
+                    return "欢迎光临KP,".$lock_sn."门禁已解锁，请尽快进入！".$res['state_msg'];
+                }
+            }
+        }
     }
 }

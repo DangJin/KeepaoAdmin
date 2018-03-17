@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
     <title>微信登录模拟测试</title>
     <script src="js/jquery-3.2.1.min.js"></script>
     <script src="js/jweixin-1.2.0.js"></script>
@@ -246,9 +248,7 @@
                 total_fee: total_fee
             },
             success: function (data) {
-                if (data.code === 200) {
-                    callback(data.data.prepay_id)
-                }
+                callback(data.data.prepay_id)
             },
             error: function (error) {
                 $("body").append(error)

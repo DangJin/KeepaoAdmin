@@ -116,3 +116,18 @@ function returnJson($code, $status, $value = '')
         );
     }
 }
+
+function openLock($app_id, $app_secret, $lock_sn)
+{
+    $client  = new \GuzzleHttp\Client();
+    $request = $client->request(
+        'POST',
+        'https://www.wmj.com.cn/api/openlock.html?appid='.$app_id.'&appsecret='
+        .$app_secret, [$lock_sn]
+    );
+
+    $res = $request->getBody()->getContents();
+
+    return json_decode(trim($res, "\xEF\xBB\xBF"), true);
+}
+

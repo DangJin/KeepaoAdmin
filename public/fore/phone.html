@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绑定手机号</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/bootstrap.3.3.7min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="phone_bd">
+    <div class="telNum">
+        <h5>手机号码</h5>
+        <input type="number" oninput="if(value.length > 11){value=value.slice(0,11)}">
+    </div>
+    <div class="yzPass">
+        <h5>验证码</h5>
+        <input type="number">
+        <button type="button" onclick="getVerify(this)">获取验证码</button>
+    </div>
+    <a href="setUp.html">立即保存</a>
+</div>
+</body>
+<script src="js/jquery.2.1.1min.js"></script>
+<script>
+  $(document).ready(function () {
+
+  })
+  var nums = 30
+  var btn
+  var clock
+
+  function getVerify (thisBtn) {
+    //        时间限制
+    btn = thisBtn
+    btn.disabled = true //将按钮置为不可点击
+    $(btn).text(nums + '秒后')
+    clock = setInterval(doLoop, 1000) //一秒执行一次
+  }
+
+  function doLoop () {
+    nums--
+    if (nums > 0) {
+      $(btn).text(nums + 's')
+    } else {
+      clearInterval(clock) //清除js定时器
+      btn.disabled = false
+      $(btn).text('获取验证码')
+      nums = 30 //重置时间
+    }
+  }
+</script>
+</html>

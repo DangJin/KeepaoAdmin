@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>码上开跑|24小时自助健身</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/bootstrap.3.3.7min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script data-main="scripts/storeList" src="js/require.js"></script>
+    <script type="text/javascript" src="http://webapi.amap.com/maps?v=1.4.4&key=3eb9d200eb4a52109a03510cb07c6cee"></script>
+</head>
+<body>
+<div class="storeList">
+    <div class="storeList_topSearch">
+        <label>
+            <a href="cityList.html"></a>
+            <i class="fa fa-angle-down"></i>
+        </label>
+        <div class="search_input">
+            <img src="image/search.png" alt="">
+            <a href="search.html">健身</a>
+        </div>
+        <div class="address">
+            <a href="storeMap.html">
+                <img src="image/address3.png" alt="">
+            </a>
+        </div>
+    </div>
+    <div class="storeList_list">
+        <div class="onload">
+            <img src="image/loading.png" alt="">
+            <p></p>
+        </div>
+    </div>
+    <script type="text/html" id="storeList_list">
+        {{each data}}
+        <div class="item">
+            <a data-stoId="{{$value.stoId}}">
+                {{if $value.img.length == 0}}
+                <img src="image/list2.jpg" alt="">
+                {{else}}
+                <img src="{{$value.img[0].name}}" alt="">
+                {{/if}}
+                <div class="content">
+                    <h5>{{$value.stoname}}</h5>
+                    <span>距离{{($value.juli/1000).toFixed(1)}}km</span>
+                    <p>地址：{{$value.address}}</p>
+                    <p>会员卡：9.9元/天起</p>
+                    <div class="operation">
+                        <i class="fa fa-angle-right"></i>
+                    </div>
+                </div>
+            </a>
+        </div>
+        {{/each}}
+    </script>
+</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>押金</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/bootstrap.3.3.7min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script data-main="scripts/deposit" src="js/require.js"></script>
+</head>
+<body>
+<div class="deposit">
+    <div class="onload">
+        <img src="image/loading.png" alt="">
+        <p></p>
+    </div>
+</div>
+<script type="text/html" id="deposit">
+    <div class="deposit_top"><img src="image/list3.jpg" alt=""></div>
+    {{if data.isDeposit == 1}}
+    <img src="image/jiaona.png" alt="">
+    <h5>已经缴纳押金</h5>
+    <p>——欢迎使用——</p>
+    {{else}}
+    <img src="image/wjiaona.png" alt="">
+    <h5>未缴纳押金</h5>
+    <p>为了保证健身设备的正常使用<br>健身前需缴纳押金</p>
+    <a href="">缴纳押金</a>
+    {{/if}}
+</script>
+</body>
+</html>

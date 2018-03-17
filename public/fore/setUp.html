@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>设置</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/bootstrap.3.3.7min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="setUp">
+    <ul>
+        <li>
+            <h5>头像</h5>
+            <div class="img"><img src="image/list1.jpg" alt=""></div>
+        </li>
+        <li>
+            <h5>昵称</h5>
+            <p><button data-toggle="modal" data-target="#myModal">就只牙齿</button></p>
+        </li>
+        <li>
+            <h5>性别</h5>
+            <p>女</p>
+        </li>
+        <li>
+            <h5>手机号</h5>
+            <a href="phone.html">绑定手机号</a>
+        </li>
+        <li>
+            <h5>留言开启</h5>
+            <div class="select"><div class="roll"></div></div>
+        </li>
+    </ul>
+    <div class="bg"></div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title">修改昵称</h4>
+                </div>
+                <div class="modal-body">
+                    <input type="text" class="form-control" id="recipient-name">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary btn_ture">保存</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<script src="js/jquery.2.1.1min.js"></script>
+<script src="js/bootstrap.3.3.7min.js"></script>
+<script>
+  $(document).ready(function () {
+
+  })
+    $('.select').click(function () {
+      if ($(this).attr('class') === 'select active') {
+        console.log('关闭')
+        $(this).toggleClass('active')
+      } else {
+        console.log('开启')
+        $(this).toggleClass('active')
+      }
+    })
+</script>
+</html>

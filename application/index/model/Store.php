@@ -153,5 +153,12 @@ class Store extends Common{
         return $list;
     }
 
-
+    public function getCityList()
+    {
+        $result = $this->field('distinct(city)')->select();
+        return [
+            'code' => 200,
+            'data' => $result
+        ];
+    }
 }

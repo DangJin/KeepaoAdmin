@@ -138,7 +138,7 @@ class Memcard extends Model
         $mem = new Memcard;
         $data['modifyUser'] = session('sId');
         $data['modifyType'] = 2;
-        $result = $mem->validate(true)->allowField(true)->isUpdate(true)->save($data);
+        $result = $mem->allowField(true)->isUpdate(true)->save($data);
 
         if (false == $result) {
             return [
@@ -151,7 +151,7 @@ class Memcard extends Model
 
         return [
             'value' => true,
-            'message' => [
+            'data' => [
                 'message' => '修改成功'
             ]
         ];
@@ -161,11 +161,11 @@ class Memcard extends Model
     {
         $memcard = new Memcard;
         if (isset($data['name'])) {
-            $memcard = $memcard->where('name', 'like', '%'.$name.'%');//->paginate($limit, false, ['page' => $page]);
+            $memcard = $memcard->where('name', 'like', $data['name'].'%');//->paginate($limit, false, ['page' => $page]);
         }
         $memcard = $memcard->paginate($limit, false, ['page' => $page]);
 
-        if ($result->count() > 0) {
+        if ($memcard->count() > 0) {
             return [
                 'value' => true,
                 'data' => [

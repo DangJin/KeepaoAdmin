@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我的会员</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+    <link rel="stylesheet" href="css/bootstrap.3.3.7min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script data-main="scripts/myVipCard" src="js/require.js"></script>
+</head>
+<body>
+<div class="myVipCard">
+    <div class="onload">
+        <img src="image/loading.png" alt="">
+        <p></p>
+    </div>
+</div>
+<script type="text/html" id="myVipCard">
+    <ul>
+        {{each data}}
+        <li>
+            <img src="{{$value.thum}}" alt="">
+            <div class="content">
+                <h5>{{$value.stoname}}</h5>
+                <p>会员有效期：<br>{{$value.validity}}</p>
+            </div>
+            <div class="youxiao">
+                <img src="image/{{$value.state == 1 ? 'vip1' : 'vip2'}}.png" alt="">
+            </div>
+        </li>
+        {{/each}}
+    </ul>
+</script>
+</body>
+<script src="js/jquery.2.1.1min.js"></script>
+</html>
